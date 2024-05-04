@@ -18,7 +18,7 @@ const Youtube = () => {
           <div className='col-md-6'>
             <h3>Contact <span>Admin</span> for  <br/>your Reword</h3>
 
-            <a href='#' className='but012 btn'>Contact</a>
+            <a href='/message' className='but012 btn'>Contact</a>
           </div>
           </div>
         </div>

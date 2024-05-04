@@ -49,6 +49,7 @@ const Users = ({ data }) => {
                 <td className="px-6 py-2">{user?.name}</td>
                 <td className="px-6 py-2">{user?.email}</td>
                 <td className="px-6 py-2">{user?.role}</td>
+                <td className="px-6 py-2">{user?.status}</td>
                 <td className="px-6 py-2">
                   <div>
                     <Link
