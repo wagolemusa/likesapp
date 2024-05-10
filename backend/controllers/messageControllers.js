@@ -20,7 +20,9 @@ export const newMessage = async(req, res) =>{
 // query message
 
 export const getMessage = async(req, res) => {
-    const message = await Message.find();
+    const message = await Message.find().populate(
+        "user"
+    );
 
     if(!message){
         return res.status(401).json({

@@ -11,6 +11,7 @@ const UpdateUser = ({ user }) => {
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
   const [role, setRole] = useState(user?.role);
+  const [status, setStatus] = useState(user?.status);
 
   useEffect(() => {
     if (updated) {
@@ -27,7 +28,7 @@ const UpdateUser = ({ user }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const userData = { name, email, role };
+    const userData = { name, email, role, status };
 
     updateUser(user?._id, userData);
   };
@@ -94,6 +95,17 @@ const UpdateUser = ({ user }) => {
                                 </svg>
                             </i>
                         </div>
+                    </div>
+                    <div className="mb-4">
+                        <label className="block mb-1"> status </label>
+                        <input
+                            className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                            type="text"
+                            placeholder="Type your email"
+                            value={status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            required
+                        />
                     </div>
 
                     <button

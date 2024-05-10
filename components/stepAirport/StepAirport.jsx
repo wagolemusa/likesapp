@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
-const CreateStep = () => {
+const CreateStepAir = () => {
 
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
@@ -14,14 +14,14 @@ const CreateStep = () => {
         e.preventDefault();
         setError(null);
 
-        const createSteps = {
+        const createAirport = {
             like: "liked",
-            step: "stepOne",
+            step: "Airports",
             user
         }
 
         try {
-            const response = await axios.post("http://localhost:3000/api/step", createSteps, {
+            const response = await axios.post("http://localhost:3000/api/step", createAirport, {
 
                 headers: {
                     'Accept': 'application/json',
@@ -30,7 +30,7 @@ const CreateStep = () => {
             });
 
             if (response.status === 201) {
-                window.location.replace("/youtube");
+                window.location.replace("/airport");
             }
 
             setSuccess(response.data.message);
@@ -58,7 +58,7 @@ const CreateStep = () => {
                             type="submit"
                             className="btnStep"
                         >
-                            Like YouTube
+                            Like Airports
                         </button>
                     </form>
                 </div>
@@ -96,7 +96,7 @@ const CreateStep = () => {
 
 }
 
-export default CreateStep
+export default CreateStepAir
 
 
 

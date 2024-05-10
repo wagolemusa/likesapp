@@ -4,7 +4,7 @@ import onError from "../../../../backend/middlewares/errors"
 
 import { isAuthenticatedUser } from "../../../../backend/middlewares/auth"
 
-import { getMessage } from '../../../../backend/controllers/messageControllers';
+import { getsteps } from '../../../../backend/controllers/stepControllers';
 
 
 const router = createRouter({ 
@@ -12,6 +12,6 @@ const router = createRouter({
  });
 
 dbConnect();
-router.use(isAuthenticatedUser).get(getMessage);
+router.use(isAuthenticatedUser).get(getsteps);
 
 export default router.handler();

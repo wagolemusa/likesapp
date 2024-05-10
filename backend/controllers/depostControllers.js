@@ -19,7 +19,7 @@ export const newDeposit = async (req, res) => {
         // Update user's account balance
         await Users.findOneAndUpdate(
             { email: username },
-            { $set: { account: updatedAccount } }
+            { $set: { account: updatedAccount, links: steps } }
         );
 
         // Create a new deposit record

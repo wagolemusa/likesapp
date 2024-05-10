@@ -7,35 +7,27 @@ import axios from "axios";
 
 const CreateMessage = () => {
 
-    const [message, setMessage] = useState("")
+    const [textsms, setTextsms] = useState("")
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
 
-
-    const handleSave = async (e) => {
+    const handleSMSSave = async (e) => {
         e.preventDefault();
         setError(null);
 
-        const createSteps = {
-            message,
+        const createSms = {
+            textsms,
             user
         }
-
-
         try {
-            const response = await axios.post("http://localhost:3000/api/message", createSteps, {
-
-
+            const response = await axios.post("http://localhost:3000/api/message", createSms, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
             });
-
-
-
             if (response.status === 201) {
-                window.location.replace("/admin/steps2");
+                window.location.replace("/thanks");
             }
 
             setSuccess(response.data.message);
@@ -49,29 +41,40 @@ const CreateMessage = () => {
     }
 
     return (
-        <div className="container">
+        <section className="cantactStyle">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-6">
+                        <h2>Contact Customer care</h2>
+                        <p>For your reword and more information</p>
+                        <hr/>
+                        <h4>homiemusa@gmail.com</h4>
+                        
+                        <h4>+256754188938</h4>
 
-            <h1>Connect to Admin</h1>
-            <h1></h1>
-            <form onSubmit={handleSave}>
-                <div class="form-outline" data-mdb-input-init>
-                    <textarea class="form-control" id="textAreaExample" rows="4"
-                        name={message}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                    ></textarea>
-                    <label class="form-label" for="textAreaExample">Message</label>
+                    </div>
+                    <div className="col-md-6 contactback">
+                        <form onSubmit={handleSMSSave}>
+                            <div class="form-outline" data-mdb-input-init>
+                                <textarea class="form-control" id="textAreaExample" rows="4"
+                                placeholder="Write a message to customer care requesting for reword"
+                                    name={textsms}
+                                    value={textsms}
+                                    onChange={(e) => setTextsms(e.target.value)}
+                                ></textarea>
+                            </div><br/>
+                            <button
+                                type="submit"
+                                className="contactbutton px-4 py-2 text-center inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 w-full"
+                            >
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <button
-                    type="submit"
-                    className="my-2 px-4 py-2 text-center inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 w-full"
-                >
-                    Send Message
-                </button>
-            </form>
-
-        </div>
     )
 
 }

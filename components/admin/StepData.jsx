@@ -7,9 +7,10 @@ import { toast } from "react-toastify";
 import '../layouts/styles.css'
 
 
-const Message = ({ data }) => {
+const StepData = ({ data }) => {
 
-        console.log("ffffff", data)
+    console.log("nnnn", data)
+
     const deleteHandler = (id) => {
         deleteCustomer(id);
     }
@@ -25,10 +26,13 @@ const Message = ({ data }) => {
                 <thead className="text-l text-gray-700 uppercase">
                     <tr>
                         <th scope="col" className="px-6 py-3">
-                            Email
+                            Like
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Message
+                            Links
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            User
                         </th>
                         
                     
@@ -36,12 +40,13 @@ const Message = ({ data }) => {
                 </thead>
                 <tbody>
              
-                    {data?.message?.map(( product ) => (
+                    {data?.steps?.map(( product ) => (
                         
                         <tr className="bg-white">
                         <td className="px-6 py-2">{product?.user.email}</td>
-                        <td className="px-6 py-2">{product?.textsms}</td>
-                   
+                        <td className="px-6 py-2">{product?.like}</td>
+                        <td className="px-6 py-2">{product?.step}</td>
+                       
                         
                         <td className="px-6 py-2">
                            
@@ -89,4 +94,4 @@ const Message = ({ data }) => {
     );
 };
 
-export default Message;
+export default StepData;

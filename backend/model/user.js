@@ -34,6 +34,14 @@ const userSchema = mongoose.Schema({
         type: String,
         default: "user"
     },
+    status: {
+        type: String,
+        default: "false"
+    },
+    links: {
+        type: String,
+        
+    },
     createdAt: {
         type: Date,
         default: Date.now,

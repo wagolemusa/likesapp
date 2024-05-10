@@ -19,7 +19,7 @@ const AirPort = () => {
           <div className='col-md-6'>
             <h2>Contact <span>Admin</span> for  <br/>your Reword</h2>
 
-            <a href='#' className='but012 btn'>Contact</a>
+            <a href='/message' className='but012 btn'>Contact</a>
           </div>
           </div>
         </div>

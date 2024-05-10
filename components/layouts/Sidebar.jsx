@@ -21,13 +21,21 @@ const Sidebar = () => {
             <li>
               {" "}
               <Link
-                href="/admin/deposts"
+                href="/admin/depost"
                 className="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md"
               >
                 Depost <span className="text-red-500">(Admin)</span>
               </Link>
             </li>
-
+            <li>
+              {" "}
+              <Link
+                href="/admin/depost/getdata"
+                className="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md"
+              >
+                Deposted Data <span className="text-red-500">(Admin)</span>
+              </Link>
+            </li>
             <li>
               {" "}
               <Link
@@ -42,7 +50,7 @@ const Sidebar = () => {
             <li>
               {" "}
               <Link
-                href="/admin/steps"
+                href="/admin/step"
                 className="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md"
               >
                 Steps <span className="text-red-500">(Admin)</span>

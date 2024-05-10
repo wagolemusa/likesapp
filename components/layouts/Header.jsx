@@ -26,27 +26,27 @@ const Header = () => {
       <div className="container max-w-screen-xl mx-auto px-4">
         <div className="flex flex-wrap items-center">
           <div className="flex-shrink-0 mr-5">
-            {/* <a href="/">
+            <a href="/">
               <Image
-                src="/images/logo.jpg"
+                src="/images/xme.png"
                 height="40"
                 width="120"
                 alt="BuyItNow"
               />
-            </a> */}
+            </a>
           </div>
           {/* <Search /> */}
 
           <div className="navhead flex items-center space-x-2 ml-auto">
           
-            <Link href="/youtube">youtube</Link>
+            {/* <Link href="/youtube">youtube</Link>
             <Link href="/admin/deposts">depost</Link>
             <Link href="/step" className="flex">Steps</Link>
             <Link href="/message">message</Link>
             <Link href="/hotel">Hotel</Link>
             <Link href="/game">Game Page</Link>
             <Link href="/airport">Airports</Link>
-            <Link href="/beach">Beach</Link>
+            <Link href="/beach">Beach</Link> */}
         </div> 
           <div className="flex items-center space-x-2 ml-auto">
             <Link
