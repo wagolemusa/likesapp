@@ -7,7 +7,7 @@ import axios from "axios";
 
 const CreateMessage = () => {
 
-    const [message, setMessage] = useState("")
+    const [textsms, setTextsms] = useState("")
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
 
@@ -16,7 +16,7 @@ const CreateMessage = () => {
         setError(null);
 
         const createSms = {
-            message,
+            textsms,
             user
         }
         try {
@@ -27,7 +27,7 @@ const CreateMessage = () => {
                 }
             });
             if (response.status === 201) {
-                window.location.replace("/admin/steps2");
+                window.location.replace("/thanks");
             }
 
             setSuccess(response.data.message);
@@ -57,10 +57,10 @@ const CreateMessage = () => {
                         <form onSubmit={handleSMSSave}>
                             <div class="form-outline" data-mdb-input-init>
                                 <textarea class="form-control" id="textAreaExample" rows="4"
-                                placeholder="Write a message to customer requesting for reword"
-                                    name={message}
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
+                                placeholder="Write a message to customer care requesting for reword"
+                                    name={textsms}
+                                    value={textsms}
+                                    onChange={(e) => setTextsms(e.target.value)}
                                 ></textarea>
                             </div><br/>
                             <button

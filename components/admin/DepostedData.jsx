@@ -7,9 +7,10 @@ import { toast } from "react-toastify";
 import '../layouts/styles.css'
 
 
-const Message = ({ data }) => {
+const DepostedData = ({ data }) => {
 
-        console.log("ffffff", data)
+  console.log("nbsbnsbnd", data)
+
     const deleteHandler = (id) => {
         deleteCustomer(id);
     }
@@ -28,20 +29,22 @@ const Message = ({ data }) => {
                             Email
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Message
+                            Links
                         </th>
-                        
+                        <th scope="col" className="px-6 py-3">
+                            Amount
+                        </th>
                     
                     </tr>
                 </thead>
                 <tbody>
              
-                    {data?.message?.map(( product ) => (
+                    {data?.deposits?.map(( product ) => (
                         
                         <tr className="bg-white">
-                        <td className="px-6 py-2">{product?.user.email}</td>
-                        <td className="px-6 py-2">{product?.textsms}</td>
-                   
+                        <td className="px-6 py-2">{product?.username}</td>
+                        <td className="px-6 py-2">{product?.steps}</td>
+                        <td className="px-6 py-2">{product?.amount}</td>
                         
                         <td className="px-6 py-2">
                            
@@ -89,4 +92,4 @@ const Message = ({ data }) => {
     );
 };
 
-export default Message;
+export default DepostedData;

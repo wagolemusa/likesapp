@@ -37,7 +37,7 @@ const Depost = ({ data }) => {
 
 
             if (response.status === 201) {
-                window.location.replace("/admin/steps2");
+                window.location.replace("/admin/depost/getdata");
             }
 
             setSuccess(response.data.message);
@@ -46,7 +46,7 @@ const Depost = ({ data }) => {
                 setError(err.response.data.message);
             } else {
                 setError(err.message);
-            }users
+            }
         }
     }
 
@@ -67,17 +67,23 @@ const Depost = ({ data }) => {
             ))}
             </select>
 
+            
+            <div className="mb-4 py-3">
+            <label class="visually-hidden" for="inlineFormSelectPref">Links</label>
+                <select data-mdb-select-init class="select" 
+                    value={steps}
+                    onChange={(e) => setSteps(e.target.value)}
+                >
+                
+                <option>stepHotel</option>
+                <option>stepGame</option>
+                <option >stepBeach</option>
+                <option >step</option>
+                <option >stepAirport</option>
 
-            <div className="mb-4">
-          <label className="block mb-1"> Steps </label>
-          <input
-            className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-            type="text"
-            value={steps}
-            onChange={(e) => setSteps(e.target.value)}
-            required
-          />
-        </div>
+
+            </select>
+            </div>
 
         <div className="mb-4">
           <label className="block mb-1"> Amount </label>

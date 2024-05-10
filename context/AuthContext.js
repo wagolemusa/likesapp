@@ -9,9 +9,12 @@ const AuthContext = createContext();
 
 export const AuthProvider =({ children }) => {
     const [user, setUser] = useState(null);
+    const [status, setStatus] = useState(null);
     const [ error, setError] = useState(null);
     const [loading, setLoading] = useState(null)
     const [updated, setUpdated] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userStatus, setUserStatus] = useState(false);
 
     const router = useRouter;
     
@@ -52,6 +55,25 @@ export const AuthProvider =({ children }) => {
             if (data?.user) {
                 setUser(data.user)
                 router.replace("/step")
+            }
+          } catch (error) {
+            setLoading(false);
+            setError(error?.response?.data?.message);
+          }
+    }
+
+
+       // Get User Status
+       const getuserStatus = async () => {
+        try {
+            setLoading(true);
+      
+            const { data } = await axios.get(
+                "/api/home"
+            );
+      
+            if (data?.user.status) {
+                setStatus(data.user.status)
             }
           } catch (error) {
             setLoading(false);
@@ -192,6 +214,9 @@ export const AuthProvider =({ children }) => {
         setError(null)
     }
 
+  
+
+
     return(
         <AuthContext.Provider
             value={{
@@ -201,6 +226,8 @@ export const AuthProvider =({ children }) => {
                 setError,
                 updated,
                 loading,
+           
+                getuserStatus,
                 registerUser,
                 addNewAddress,
                 updateProfile,

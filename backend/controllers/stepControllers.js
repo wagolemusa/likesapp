@@ -20,7 +20,9 @@ export const newStep = async(req, res) => {
 
 
 export const getsteps = async(req, res) => {
-    const steps = await Step.find()
+    const steps = await Step.find().populate(
+        "user"
+    )
     if(!steps){
         return res.status(401).json({
             message: "No steps found"

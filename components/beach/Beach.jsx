@@ -8,6 +8,7 @@ const Beachview = () => {
   return (
     <>
     <section className='youtubeBeach'>
+      <div className='youtubebackx'>
       <div className='container'>
         <div className='row'>
           <div className='youtubebackz'>
@@ -17,10 +18,11 @@ const Beachview = () => {
           <div className='col-md-6'>
             <h2>Contact <span>Admin</span> for  <br/>your Reword</h2>
 
-            <a href='#' className='but012 btn'>Contact</a>
+            <a href='/message' className='but012 btn'>Contact</a>
           </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 

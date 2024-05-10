@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const messageSchema = new mongoose.Schema({
-    message: {
+    textsms: {
         type: String,
         required: true
     },
@@ -18,7 +18,7 @@ const messageSchema = new mongoose.Schema({
 })
 
 export default mongoose.models.Message ||
-mongoose.model("Mesasge", messageSchema)
+mongoose.model("Message", messageSchema)
 
 
 

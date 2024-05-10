@@ -522,6 +522,35 @@
   padding-left: 50px;
 }
 
+.thanks{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-image: linear-gradient(116deg, #0D1D42 0%, #2B3858 100%);
+  padding-top: 8em;
+  padding-bottom: 10em;
+  padding-left: 50px;
+}
+
+.btnStep1:hover{
+  background-color: #fff;
+}
+
+
+.thanks h2{
+  color: #FFFFFF;
+  font-size: 48px;
+  /* text-align: center; */
+  font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+  font-weight: 900;
+  line-height: 70px;
+}
+
+.thanks p{
+  color: #FFFFFF;
+  font-size: 28px;
+}
+
+
 .but012{
   color: #FFFFFF;
   width: 200px;
@@ -813,4 +842,177 @@
 
 .home013 {
   background-image: url("https://wbstatic.webullfintech.com/v1/webull-us-g/assets/befe8cc0a71f86d0ecbc82af510296f3.webm");
+}
+
+.homelogo {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.txthome{
+  color: #fff;
+  font-size: 600;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .homes h2{
+    color: #FFFFFF;
+    font-size: 28px;
+     text-align: center;
+    font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+    font-weight: 800;
+    line-height: 58px;
+  }
+
+  .btn0012 {
+    font-family: OpenSans-SemiBold;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 20rem;
+    height: 2.8rem;
+    line-height: 4.5rem;
+    background-color: rgb(39, 104, 245);
+    color: rgb(255, 255, 255);
+    letter-spacing: 0px;
+    white-space: pre;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0.2rem 0.2rem;
+    padding: 0.2rem;
+    border-radius: 1.2rem;
+    z-index: 1;
+    background-image: linear-gradient(270deg, rgb(13, 162, 255), rgb(13, 118, 255));
+    cursor: pointer;
+  }
+
+  .stepRefer p{
+    color: #4F4F4F;
+    font-size: 28px;
+    font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+    font-weight: 800;
+    line-height: 50px;
+   
+  }
+  .btnStep1 {
+    font-family: OpenSans-SemiBold;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 20rem;
+    height: 2.8rem;
+    line-height: 4.5rem;
+    background-color: rgb(39, 104, 245);
+    color: rgb(255, 255, 255);
+    letter-spacing: 0px;
+    white-space: pre;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0.2rem 0.2rem;
+    padding: 0.2rem;
+    border-radius: 1.2rem;
+    z-index: 1;
+    background-image: linear-gradient(270deg, rgb(13, 162, 255), rgb(13, 118, 255));
+    cursor: pointer;
+   
+  }
+  .homeTwo {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .btnStep {
+    font-family: OpenSans-SemiBold;
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: 20rem;
+    height: 3.8rem;
+    line-height: 4.5rem;
+    background-color: rgb(39, 104, 245);
+    color: rgb(11, 15, 230);
+    letter-spacing: 0px;
+    white-space: pre;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0.2rem 0.2rem;
+    padding: 0.2rem;
+    border-radius: 1.2rem;
+    z-index: 1;
+    background-image: linear-gradient(270deg, rgb(242, 249, 253), rgb(247, 247, 247));
+    cursor: pointer;
+  }
+  .youtubeBeach h2{
+    color: #FFFFFF;
+    font-size: 35px;
+    /* text-align: center; */
+    font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+    font-weight: 600;
+    line-height: 60px;
+  }
+
+  .you011 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .cantactStyle {
+    padding-top: 3em;
+    padding-bottom: 2em;
+    background: #141D38;
+  }
+
+  .cantactStyle h2 {
+    color: #FFFFFF;
+    font-size: 28px;
+    /* text-align: center; */
+    font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+    font-weight: 900;
+    line-height: 70px;
+  }
+  
+  .cantactStyle h4{
+    font-family: OpenSans-Regular;
+    font-size: 1.6rem;
+    color: rgb(255, 255, 255);
+    line-height: 2.2rem;
+    text-align: left;
+    letter-spacing: 0px;
+    font-weight: 400;
+    cursor: inherit;
+  }
+  .thanks{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-image: linear-gradient(116deg, #0D1D42 0%, #2B3858 100%);
+    padding-top: 3em;
+    padding-bottom: 3em;
+    padding-left: 20px;
+  }
+  
+ 
+  
+  .thanks h2{
+    color: #FFFFFF;
+    font-size: 38px;
+    /* text-align: center; */
+    font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+    font-weight: 500;
+    line-height: 60px;
+  }
+  
+  .thanks p{
+    color: #FFFFFF;
+    font-size: 24px;
+  }
+  
+  
+  
 }
