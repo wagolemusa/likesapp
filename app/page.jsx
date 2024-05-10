@@ -12,7 +12,6 @@ const HomePage = () => {
 
     const { data } = useSession();
   
-    console.log("ddsdds", user);
   
     useEffect(() => {
       if (data) {
@@ -20,11 +19,7 @@ const HomePage = () => {
       }
     }, [data]);
   
-    // const { user } = useContext(AuthContext);
 
-    // console.log("bbbbbbbbbbbbb", user)
-
-    
     return (
         <>
             <section className="homes">
