@@ -1,8 +1,6 @@
 import React from "react";
 import { cookies } from "next/headers";
 import axios from "axios";
-import HomePage from "../page";
-
 
 const getUsers = async () => {
   const nextCookies = cookies();
