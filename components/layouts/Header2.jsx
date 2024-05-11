@@ -67,7 +67,7 @@ const Navbar = () => {
             <Link href="/me">
               <div className="flex items-center mb-4 space-x-3 mt-4 cursor-pointer">
                 <div className="space-y-1 font-medium">
-                
+                  <b>{user?.account || 0}</b> $
                     <time className="txthome block text-sm text-gray-500 dark:text-gray-400">
                       {user?.name}
                     </time>
