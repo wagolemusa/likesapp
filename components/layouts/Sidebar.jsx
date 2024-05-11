@@ -10,9 +10,17 @@ const Sidebar = () => {
   const { user } = useContext(AuthContext)
 
   const logoutHandler = () => {
-    signOut("https://master.d24sycgowgt1de.amplifyapp.com");
-    
-  }
+    signOut()
+        .then(() => {
+            // Redirect the user to the specified URL after logout
+            window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
+        })
+        .catch(error => {
+            console.error("Error occurred during logout:", error);
+            // Handle error if necessary
+        });
+}
+
 
   return (
     <aside className="md:w-1/3 lg:w-1/4 px-4">
