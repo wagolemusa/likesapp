@@ -4,12 +4,16 @@ import React, {useContext} from "react";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import AuthContext from "../../context/AuthContext";
+import { useHistory } from 'react-router-dom';
 
 const Sidebar = () => {
 
   const { user } = useContext(AuthContext)
+  const history = useHistory();
+  
   const logoutHandler = () => {
     signOut();
+    history.push('https://master.d24sycgowgt1de.amplifyapp.com/')
   }
 
   return (

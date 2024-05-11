@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     if (data?.ok) {
-      router.push("/");
+      router.push("https://master.d24sycgowgt1de.amplifyapp.com/");
     }
   };
 
