@@ -11,7 +11,9 @@ export const newDeposit = async (req, res) => {
         const userAccount = await Users.findOne({ email: username }).select("account");
 
         if (!userAccount) {
-            return res.status(404).json({ error: "User not found" });
+            return res.status(401).json({
+                message: "User Not Defined"
+            })
         }
 
         const updatedAccount = Number(userAccount.account) + Number(amount);
