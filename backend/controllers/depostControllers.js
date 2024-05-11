@@ -1,7 +1,7 @@
 import Point from  "../../backend/model/point"
 // Assuming Users model is defined using Mongoose
 import Users from "../../backend/model/user"; // Adjust the import path as needed
-import message from "../model/message";
+
 
 export const newDeposit = async (req, res) => {
     try {
