@@ -23,7 +23,7 @@ const Depost = ({ data }) => {
             steps,
             amount
         }
-
+     
         try {
             const response = await axios.post("https://master.d24sycgowgt1de.amplifyapp.com/api/admin/depost", createDepost, {
 
