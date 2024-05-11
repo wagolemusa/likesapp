@@ -10,7 +10,7 @@ const Sidebar = () => {
   const { user } = useContext(AuthContext)
 
   const logoutHandler = () => {
-    signOut("/");
+    signOut("https://master.d24sycgowgt1de.amplifyapp.com");
     
   }
 
