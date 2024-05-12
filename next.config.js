@@ -6,7 +6,6 @@ const nextConfig = {
     },
 
     env: {
-        //  ENVIRONMENT_URL: "http://localhost:3000",
         ENVIRONMENT_URL: "https://master.d24sycgowgt1de.amplifyapp.com",
         DB_URL: "mongodb+srv://homiemusa:djrefuge@cluster0.ufagbex.mongodb.net/likes",
         CLOUND_NAME:"xycoders",
@@ -24,5 +23,3 @@ const nextConfig = {
 module.exports = nextConfig
 
 
-// mongodb+srv://homiemusa:<password>@cluster0.ufagbex.mongodb.net/
-// DB_URL: "mongodb+srv://homiemusa:djrefuge@cluster0.fk517ja.mongodb.net/npcdatabase?retryWrites=true&w=majority",
