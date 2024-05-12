@@ -7,14 +7,15 @@ import { toast } from "react-toastify";
 import '../layouts/styles.css'
 
 
-const DepostedData = ({ data }) => {
+const DepostedData = async() => {
 
-  console.log("nbsbnsbnd", data)
+ const getDeposits = async ( ) => {
+     const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
+     return data;
+ }
 
-    const deleteHandler = (id) => {
-        deleteCustomer(id);
-    }
-  
+  const data = await getDeposits()
+
     return (
 
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -46,32 +47,7 @@ const DepostedData = ({ data }) => {
                         <td className="px-6 py-2">{product?.steps}</td>
                         <td className="px-6 py-2">{product?.amount}</td>
                         
-                        <td className="px-6 py-2">
-                           
-                            <div>
-                                <Link
-                                    href={`/admin/customer/new/${product?._id}`}
-                                    className="px-2 py-2 inline-block text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 cursor-pointer mr-2"
-                                >
-                                    {/* <i className="fa fa-image" aria-hidden="true"></i> */}
-                                    View
-                                </Link>
-
-                                <Link
-                                    href={`/admin/customer/${product?._id}`}
-                                    className="px-2 py-2 inline-block text-yellow-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 cursor-pointer mr-2"
-                                >
-                                    {/* <i className="fa fa-pencil" aria-hidden="true"></i> */}
-                                    Edit
-                                </Link>
-                                <a className="px-2 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 cursor-pointer"
-                                    onClick={() => deleteHandler(product?._id)}
-                                >
-                                    {/* <i className="fa fa-trash" aria-hidden="true"></i> */}
-                                    Delete
-                                </a>
-                            </div>
-                        </td>
+                
                     </tr>
                     ))}
          
