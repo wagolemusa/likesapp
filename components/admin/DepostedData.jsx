@@ -3,7 +3,7 @@
 import React from "react";
 import CustromPagination from "../layouts/CustromPagination";
 import '../layouts/styles.css'
-
+import axios from "axios";
 
 const DepostedData = async() => {
 
