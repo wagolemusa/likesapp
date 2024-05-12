@@ -5,15 +5,18 @@ import Link from "next/link";
 import CustromPagination from "../layouts/CustromPagination";
 import { toast } from "react-toastify";
 import '../layouts/styles.css'
+import axios from "axios";
 
+const Message =async () => {
 
-const Message = ({ data }) => {
-
-        console.log("ffffff", data)
-    const deleteHandler = (id) => {
-        deleteCustomer(id);
+    const getMessage = async ( ) => {
+        const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/messages`);
+        return data;
     }
-  
+
+    const data = await getMessage()
+
+
     return (
 
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
