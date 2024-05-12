@@ -23,7 +23,7 @@ export default withAuth(async function middleware(req) {
 
 
 export const config = {
-    matcher: ["/admin/:path*", "/me/:path*", "/shipping"]
+    matcher: ["/admin/:path*", "/me/:path*", "/"]
 }
 
 
