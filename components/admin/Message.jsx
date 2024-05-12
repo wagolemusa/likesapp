@@ -1,9 +1,7 @@
 'use client'
 
-import React, { useContext, useEffect} from "react";
-import Link from "next/link";
+import React from "react";
 import CustromPagination from "../layouts/CustromPagination";
-import { toast } from "react-toastify";
 import '../layouts/styles.css'
 import axios from "axios";
 
