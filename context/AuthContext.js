@@ -54,7 +54,7 @@ export const AuthProvider =({ children }) => {
       
             if (data?.user) {
                 setUser(data.user)
-                router.replace("/step")
+                router.replace("/")
             }
           } catch (error) {
             setLoading(false);
@@ -63,23 +63,23 @@ export const AuthProvider =({ children }) => {
     }
 
 
-       // Get User Status
-       const getuserStatus = async () => {
-        try {
-            setLoading(true);
+    //    // Get User Status
+    //    const getuserStatus = async () => {
+    //     try {
+    //         setLoading(true);
       
-            const { data } = await axios.get(
-                "/api/home"
-            );
+    //         const { data } = await axios.get(
+    //             "/api/home"
+    //         );
       
-            if (data?.user.status) {
-                setStatus(data.user.status)
-            }
-          } catch (error) {
-            setLoading(false);
-            setError(error?.response?.data?.message);
-          }
-    }
+    //         if (data?.user.status) {
+    //             setStatus(data.user.status)
+    //         }
+    //       } catch (error) {
+    //         setLoading(false);
+    //         setError(error?.response?.data?.message);
+    //       }
+    // }
 
 
             // update Profile
