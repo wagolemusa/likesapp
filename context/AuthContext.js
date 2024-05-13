@@ -226,8 +226,6 @@ export const AuthProvider =({ children }) => {
                 setError,
                 updated,
                 loading,
-           
-                getuserStatus,
                 registerUser,
                 addNewAddress,
                 updateProfile,
