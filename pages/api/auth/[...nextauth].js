@@ -62,7 +62,7 @@ export default async function auth(req, res) {
         // },
       },
       pages: {
-        signIn: "/https://master.d24sycgowgt1de.amplifyapp.com",
+        signIn: "https://master.d24sycgowgt1de.amplifyapp.com",
       },
       secret: process.env.NEXTAUTH_SECRET,
     });
