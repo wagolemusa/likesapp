@@ -23,17 +23,18 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      // callbackUrl: callBackUrl ? parseCallbackUrl(callBackUrl): "/",
+      callbackUrl: "/",
     });
 
+      if (data?.error) {
+      toast.error(data?.error);
+    }
+
     if (data?.ok) {
-      // window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
-      router.push("https://master.d24sycgowgt1de.amplifyapp.com")
+      router.push("/")
     }
     
-    // if (data?.error) {
-    //   toast.error(data?.error);
-    // }
+  
 
     
   };
@@ -77,7 +78,7 @@ const Login = () => {
         >
           Login
         </button>
-
+        </form>
         <hr className="mt-4" />
 
         <p className="text-center mt-5">
@@ -86,7 +87,7 @@ const Login = () => {
             Register
           </Link>
         </p>
-      </form>
+     
     </div>
   );
 };
