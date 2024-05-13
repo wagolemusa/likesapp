@@ -23,7 +23,7 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      callbackUrl: callBackUrl ? parseCallbackUrl(callBackUrl): "https://master.d24sycgowgt1de.amplifyapp.com",
+      callbackUrl: callBackUrl ? parseCallbackUrl(callBackUrl): "/",
     });
 
     if (data?.error) {
@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     if (data?.ok) {
-      router.push("https://master.d24sycgowgt1de.amplifyapp.com");
+      window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
     }
   };
 
