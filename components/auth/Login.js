@@ -32,7 +32,7 @@ const Login = () => {
 
     if (data?.ok) {
       // window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
-      router.push("/")
+      router.push("https://master.d24sycgowgt1de.amplifyapp.com")
     }
   };
 
