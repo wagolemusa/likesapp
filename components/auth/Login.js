@@ -26,14 +26,16 @@ const Login = () => {
       // callbackUrl: callBackUrl ? parseCallbackUrl(callBackUrl): "/",
     });
 
-    if (data?.error) {
-      toast.error(data?.error);
-    }
-
     if (data?.ok) {
       // window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
       router.push("https://master.d24sycgowgt1de.amplifyapp.com")
     }
+    
+    // if (data?.error) {
+    //   toast.error(data?.error);
+    // }
+
+    
   };
 
   return (
