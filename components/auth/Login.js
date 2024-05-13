@@ -20,7 +20,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const data = await signIn("credentials", {
+    const data = await signIn({
       email,
       password,
     });
