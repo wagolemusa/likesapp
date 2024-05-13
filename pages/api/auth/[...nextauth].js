@@ -34,6 +34,7 @@ export default async function auth(req, res) {
           },
         }),
       ],
+
       callbacks: {
         jwt: async ({ token, user }) => {
           user && (token.user = user);
@@ -54,6 +55,10 @@ export default async function auth(req, res) {
           delete session?.user?.password;
   
           return session;
+        },
+
+        signIn: async () => {
+          return '/'; 
         },
       },
       pages: {
