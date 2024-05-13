@@ -57,12 +57,12 @@ export default async function auth(req, res) {
           return session;
         },
 
-        signIn: async () => {
-          return 'https://master.d24sycgowgt1de.amplifyapp.com'; 
-        },
+        // signIn: async () => {
+        //   return 'https://master.d24sycgowgt1de.amplifyapp.com'; 
+        // },
       },
       pages: {
-        signIn: "/login",
+        signIn: "/https://master.d24sycgowgt1de.amplifyapp.com",
       },
       secret: process.env.NEXTAUTH_SECRET,
     });
