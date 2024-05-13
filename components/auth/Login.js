@@ -20,9 +20,10 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const data = await signIn({
+    const data = await signIn("credentials", {
       email,
       password,
+      callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com",
     });
 
       if (data?.error) {
@@ -77,7 +78,7 @@ const Login = () => {
         >
           Login
         </button>
-        </form>
+ </form>
         <hr className="mt-4" />
 
         <p className="text-center mt-5">
