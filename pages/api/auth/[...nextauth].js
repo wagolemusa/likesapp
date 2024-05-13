@@ -58,11 +58,11 @@ export default async function auth(req, res) {
         },
 
         signIn: async () => {
-          return '/'; 
+          return 'https://master.d24sycgowgt1de.amplifyapp.com'; 
         },
       },
       pages: {
-        signIn: "https://master.d24sycgowgt1de.amplifyapp.com",
+        signIn: "/login",
       },
       secret: process.env.NEXTAUTH_SECRET,
     });
