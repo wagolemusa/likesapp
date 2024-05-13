@@ -57,7 +57,7 @@ export default async function auth(req, res) {
           return session;
         },
         signIn: async () => {
-          return 'https://master.d24sycgowgt1de.amplifyapp.com'; 
+          return '/'; 
         },
       },
       pages: {
