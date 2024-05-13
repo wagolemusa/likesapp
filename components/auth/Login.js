@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter, useSearchParams } from "next/navigation";
-import { parseCallbackUrl } from "../../helpers/helpers";
+// import { parseCallbackUrl } from "../../helpers/helpers";
 
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
 
   const router = useRouter();
   const params = useSearchParams();
-  const callBackUrl = params.get('callbackUrl')
+  // const callBackUrl = params.get('callbackUrl')
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      callbackUrl: callBackUrl ? parseCallbackUrl(callBackUrl): "/",
+      // callbackUrl: callBackUrl ? parseCallbackUrl(callBackUrl): "/",
     });
 
     if (data?.error) {
@@ -31,7 +31,8 @@ const Login = () => {
     }
 
     if (data?.ok) {
-      window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
+      // window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
+      router.push("/")
     }
   };
 
