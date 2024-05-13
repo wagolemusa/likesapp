@@ -1,15 +1,20 @@
+"use client";
 
-"use client"
-
+import Link from "next/link";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
+
+
 
 const Login = () => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const router = useRouter();
+
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -17,7 +22,7 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com", // Use localhost as the callback URL
+      callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com",
     });
 
     if (data?.error) {
@@ -25,10 +30,9 @@ const Login = () => {
     }
 
     if (data?.ok) {
-      router.push("/"); // Redirect to home page upon successful login
+      router.push("/");
     }
   };
-
 
   return (
     <div
@@ -69,7 +73,7 @@ const Login = () => {
         >
           Login
         </button>
- </form>
+
         <hr className="mt-4" />
 
         <p className="text-center mt-5">
@@ -78,7 +82,7 @@ const Login = () => {
             Register
           </Link>
         </p>
-     
+      </form>
     </div>
   );
 };
