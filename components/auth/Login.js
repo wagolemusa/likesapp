@@ -1,3 +1,6 @@
+
+"use client"
+
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
@@ -14,7 +17,7 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com/", // Use localhost as the callback URL
+      callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com", // Use localhost as the callback URL
     });
 
     if (data?.error) {
