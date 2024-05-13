@@ -23,7 +23,6 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      callbackUrl: "/",
     });
 
       if (data?.error) {
