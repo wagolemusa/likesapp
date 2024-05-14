@@ -15,7 +15,7 @@ export default async function auth(req, res) {
 
           credentials: {
             // Update callbackUrl here
-            callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com/",
+            callbackUrl: "https://master.db8a0i6yi8i2l.amplifyapp.com",
         },
 
           async authorize(credentials, req) {
@@ -45,7 +45,7 @@ export default async function auth(req, res) {
 
           if(req.url === '/api/auth/session?update'){
             // hit the db and return the update
-
+            console.log("Updating user session...", );
             const updatedUser = await User.findById(token.user._id)
             token.user = updatedUser
           }

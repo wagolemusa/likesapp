@@ -22,7 +22,7 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com/me",
+      callbackUrl: "https://master.db8a0i6yi8i2l.amplifyapp.com/me",
     });
 
     if (data?.error) {
@@ -30,7 +30,7 @@ const Login = () => {
     }
 
     if (data?.ok) {
-      router.push("https://master.d24sycgowgt1de.amplifyapp.com/me");
+      router.push("https://master.db8a0i6yi8i2l.amplifyapp.com/me");
     }
   };
 

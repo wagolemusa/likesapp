@@ -6,8 +6,8 @@ const nextConfig = {
     },
 
     env: {
-        NEXTAUTH_URL: "https://master.d24sycgowgt1de.amplifyapp.com",
-        ENVIRONMENT_URL: "https://master.d24sycgowgt1de.amplifyapp.com",
+        NEXTAUTH_URL: "https://master.db8a0i6yi8i2l.amplifyapp.com",
+        ENVIRONMENT_URL: "https://master.db8a0i6yi8i2l.amplifyapp.com",
         DB_URL: "mongodb+srv://homiemusa:djrefuge@cluster0.ufagbex.mongodb.net/likes",
         CLOUND_NAME:"xycoders",
         CLOUDINARY_API_KEY: "837887428819121",

@@ -25,7 +25,7 @@ const Depost = ({ data }) => {
         }
      
         try {
-            const response = await axios.post("https://master.d24sycgowgt1de.amplifyapp.com/api/admin/depost", createDepost, {
+            const response = await axios.post("https://master.db8a0i6yi8i2l.amplifyapp.com/api/admin/depost", createDepost, {
 
 
                 headers: {
