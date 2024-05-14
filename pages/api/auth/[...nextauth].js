@@ -13,6 +13,11 @@ export default async function auth(req, res) {
       providers: [
         CredentialsProvider({
 
+          credentials: {
+            // Update callbackUrl here
+            callbackUrl: "https://master.d24sycgowgt1de.amplifyapp.com/",
+        },
+
           async authorize(credentials, req) {
             dbConnect();
   
@@ -60,7 +65,6 @@ export default async function auth(req, res) {
         signIn: "/login",
       },
       secret: process.env.NEXTAUTH_SECRET,
-      site: process.env.NEXTAUTH_URL,
     });
   }
 
