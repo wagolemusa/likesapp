@@ -13,7 +13,7 @@ const Sidebar = () => {
     signOut()
         .then(() => {
             // Redirect the user to the specified URL after logout
-            window.location.href = "https://master.d24sycgowgt1de.amplifyapp.com";
+            window.location.href = "http://localhost:3000";
         })
         .catch(error => {
             console.error("Error occurred during logout:", error);

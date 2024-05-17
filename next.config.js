@@ -7,7 +7,7 @@ const nextConfig = {
 
     env: {
 
-        ENVIRONMENT_URL: "https://master.db8a0i6yi8i2l.amplifyapp.com",
+        ENVIRONMENT_URL: "http://localhost:3000",
         DB_URL: "mongodb+srv://homiemusa:djrefuge@cluster0.ufagbex.mongodb.net/likes",
         CLOUND_NAME:"xycoders",
         CLOUDINARY_API_KEY: "837887428819121",
