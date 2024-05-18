@@ -53,8 +53,12 @@ const Depost = ({ data }) => {
 
 
     return (
-        <div className="container">
-            <h1>Connect to Admin</h1>
+    
+            
+            <section className="container max-w-3xl p-6 mx-auto">
+      <h1 className="mb-3 text-xl md:text-3xl font-semibold text-black mb-8">
+            Give Points 
+      </h1>
     
             <form onSubmit={handleSave}>
             <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
@@ -103,7 +107,7 @@ const Depost = ({ data }) => {
                 </button>
             </form>
 
-        </div>
+        </section>
     )
 
 }

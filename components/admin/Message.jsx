@@ -16,7 +16,6 @@ const Message =async () => {
 
 
     return (
-
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
                 <h1 className="text-3xl my-5 ml-4 font-bold">
                 </h1>
