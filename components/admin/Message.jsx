@@ -5,9 +5,14 @@ import CustromPagination from "../layouts/CustromPagination";
 import '../layouts/styles.css'
 import axios from "axios";
 
-const Message = ({ sms}) => {
+const Message = async () => {
 
+    const getMessage = async () => {
+        const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/messages`);
+        return data;
+    }
 
+    const data = await getMessage()
 
     return (
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -28,7 +33,7 @@ const Message = ({ sms}) => {
                 </thead>
                 <tbody>
              
-                    {sms?.message?.map(( product ) => (
+                    {data?.message?.map(( product ) => (
                         
                         <tr className="bg-white">
                         <td className="px-6 py-2">{product?.user.email}</td>

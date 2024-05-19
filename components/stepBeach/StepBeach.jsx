@@ -21,7 +21,7 @@ const CreateStepBeach = () => {
         }
 
         try {
-            const response = await axios.post("https://master.d1i6lps1vc3v2e.amplifyapp.com/api/step", createBeach, {
+            const response = await axios.post("http://localhost:3000/api/step", createBeach, {
 
                 headers: {
                     'Accept': 'application/json',

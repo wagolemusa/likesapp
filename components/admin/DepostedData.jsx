@@ -5,7 +5,36 @@ import CustromPagination from "../layouts/CustromPagination";
 import '../layouts/styles.css'
 import axios from "axios";
 
-const DepostedData = async({ step }) => {
+
+// export const getServerSideProps = async (context) => {
+//     try {
+//       const response = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
+//       const data = response.data;
+  
+//       return {
+//         props: {
+//           data,
+//         },
+//       };
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+  
+//       return {
+//         props: {
+//           data: null,
+//           error: 'Failed to fetch data',
+//         },
+//       };
+//     }
+//   };
+
+const DepostedData = async() => {
+
+ const getDeposits = async () => {
+     const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
+     return data;
+ }
+  const data = await getDeposits()
 
 
     return (
@@ -32,7 +61,7 @@ const DepostedData = async({ step }) => {
                 </thead>
                 <tbody>
              
-                    {step?.deposits?.map(( product ) => (
+               {data?.deposits?.map(( product ) => (
                         
                         <tr className="bg-white">
                         <td className="px-6 py-2">{product?.username}</td>
