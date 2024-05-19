@@ -22,7 +22,7 @@ const Login = () => {
     const data = await signIn("credentials", {
       email,
       password,
-      callbackUrl: "https://master.db8a0i6yi8i2l.amplifyapp.com/me",
+      callbackUrl: "hhttps://master.d1i6lps1vc3v2e.amplifyapp.com/me",
     });
 
     if (data?.error) {

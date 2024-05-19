@@ -10,7 +10,7 @@ const getUsers = async () => {
     const nextAuthSessionToken = nextCookies.get("next-auth.session-token");
 
     const { data } = await axios.get(
-      `${process.env.NEXTAUTH_URL}/api/admin/users`,
+      `${process.env.ENVIRONMENT_URL}/api/admin/users`,
       {
         headers: {
           Cookie: `next-auth.session-token=${nextAuthSessionToken?.value}`,

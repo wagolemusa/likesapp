@@ -8,7 +8,7 @@ import axios from "axios";
 const DepostedData = async() => {
 
  const getDeposits = async ( ) => {
-     const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/admin/depost/getdata`);
+     const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
      return data;
  }
 

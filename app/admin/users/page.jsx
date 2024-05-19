@@ -18,7 +18,7 @@ const getUsers = async (searchParams) => {
   const searchQuery = queryString.stringify(urlParams);
 
   const { data } = await axios.get(
-    `${process.env.NEXTAUTH_URL}/api/admin/users?${searchQuery}`,
+    `${process.env.ENVIRONMENT_URL}/api/admin/users?${searchQuery}`,
     {
       headers: {
         Cookie: `next-auth.session-token=${nextAuthSessionToken?.value}`,
