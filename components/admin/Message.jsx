@@ -8,7 +8,7 @@ import axios from "axios";
 const Message =async () => {
 
     const getMessage = async ( ) => {
-        const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/messages`);
+        const { data } = await axios.get(`https://master.d1i6lps1vc3v2e.amplifyapp.com/api/admin/messages`);
         return data;
     }
 
