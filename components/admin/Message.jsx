@@ -7,12 +7,7 @@ import axios from "axios";
 
 const Message = ({ sms}) => {
 
-    // const getMessage = async ( ) => {
-    //     const { sms } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/messages`);
-    //     return sms;
-    // }
 
-    // const sms = await getMessage()
 
     return (
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">

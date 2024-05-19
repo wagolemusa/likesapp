@@ -7,12 +7,6 @@ import axios from "axios";
 
 const DepostedData = async({ step }) => {
 
-//  const getDeposits = async ( ) => {
-//      const { step } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
-//      return step;
-//  }
-
-//   const step = await getDeposits()
 
     return (
 
