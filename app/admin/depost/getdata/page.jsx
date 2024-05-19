@@ -1,9 +1,18 @@
 
 import DepostedData from '../../../../components/admin/DepostedData';
 
-const DepostPageData = async () => {
 
-    return <DepostedData />
+const getDeposits = async ( ) => {
+    const { step } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
+    return step;
+}
+
+
+
+const DepostPageData = async () => {
+    const step = await getDeposits()
+
+    return <DepostedData step={step}/>
 }
 
 export default DepostPageData;
