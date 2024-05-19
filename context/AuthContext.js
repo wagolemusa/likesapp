@@ -23,7 +23,7 @@ export const AuthProvider =({ children }) => {
         try{
 
             const { data } = await axios.post(
-                `${process.env.NEXTAUTH_URL}/api/auth/register`,
+                `${process.env.ENVIRONMENT_URL}/api/auth/register`,
                 {
                     name,
                     username,
@@ -88,7 +88,7 @@ export const AuthProvider =({ children }) => {
                   setLoading(true);
             
                   const { data } = await axios.put(
-                    `${process.env.NEXTAUTH_URL}/api/auth/me/update`,
+                    `${process.env.ENVIRONMENT_URL}/api/auth/me/update`,
                     formData,
                     {
                       headers: {
@@ -111,7 +111,7 @@ export const AuthProvider =({ children }) => {
     const addNewAddress = async(address) => {
         try{
             const { data } = await axios.post(
-                `${process.env.NEXTAUTH_URL}/api/address`,
+                `${process.env.ENVIRONMENT_URL}/api/address`,
                 address
             )
             if(data){
@@ -127,7 +127,7 @@ export const AuthProvider =({ children }) => {
     const updateAddress = async(id, address) => {
         try{
             const { data } = await axios.put(
-                `${process.env.NEXTAUTH_URL}/api/address/${id}`,
+                `${process.env.ENVIRONMENT_URL}/api/address/${id}`,
                 address
             );
             if(data?.address){
@@ -143,7 +143,7 @@ export const AuthProvider =({ children }) => {
     const updatePassword = async ({ currentPassword, newPassword }) => {
         try {
           const { data } = await axios.put(
-            `${process.env.NEXTAUTH_URL}/api/auth/me/update_password`,
+            `${process.env.ENVIRONMENT_URL}/api/auth/me/update_password`,
             {
               currentPassword,
               newPassword,
@@ -163,7 +163,7 @@ export const AuthProvider =({ children }) => {
       const updateUser = async (id, userData) => {
         try {
           const { data } = await axios.put(
-            `${process.env.NEXTAUTH_URL}/api/admin/users/${id}`,
+            `${process.env.ENVIRONMENT_URL}/api/admin/users/${id}`,
             {
               userData,
             }
@@ -182,7 +182,7 @@ export const AuthProvider =({ children }) => {
       const deleteUser = async (id) => {
         try {
           const { data } = await axios.delete(
-            `${process.env.NEXTAUTH_URL}/api/admin/users/${id}`
+            `${process.env.ENVIRONMENT_URL}/api/admin/users/${id}`
           );
     
           if (data?.success) {
@@ -199,7 +199,7 @@ export const AuthProvider =({ children }) => {
         const deleteAddress = async(id) => {
             try{
                 const { data } = await axios.delete(
-                    `${process.env.NEXTAUTH_URL}/api/address/${id}`
+                    `${process.env.ENVIRONMENT_URL}/api/address/${id}`
                 );
                 if(data?.success){
                   router.push("/me")

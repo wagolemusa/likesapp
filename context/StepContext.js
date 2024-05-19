@@ -19,7 +19,7 @@ export const StepProvider = ({ children }) => {
     const newStep = async(step) => {
         try {
             const { data } = await axios.post(
-              `${process.env.NEXTAUTH_URL}/api/step`,
+              `${process.env.ENVIRONMENT_URL}/api/step`,
               step
             );
       

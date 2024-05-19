@@ -21,7 +21,7 @@ const CreateGame = () => {
         }
 
         try {
-            const response = await axios.post("https://master.d24sycgowgt1de.amplifyapp.com/api/step", createGame, {
+            const response = await axios.post("https://master.d1i6lps1vc3v2e.amplifyapp.com/api/step", createGame, {
 
                 headers: {
                     'Accept': 'application/json',
