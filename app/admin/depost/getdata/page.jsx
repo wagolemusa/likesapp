@@ -1,6 +1,6 @@
 
 import DepostedData from '../../../../components/admin/DepostedData';
-
+import axios from 'axios';
 
 const getDeposits = async ( ) => {
     const { step } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
