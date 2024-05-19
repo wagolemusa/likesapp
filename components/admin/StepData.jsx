@@ -10,7 +10,7 @@ import axios from "axios";
 const StepData = async() => {
 
    const getSteps = async ( ) => {
-    const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/step`);
+    const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/admin/step`);
     return data;
 }
 

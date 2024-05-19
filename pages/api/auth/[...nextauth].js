@@ -15,7 +15,7 @@ export default async function auth(req, res) {
 
           credentials: {
             // Update callbackUrl here
-            callbackUrl: "https://master.db8a0i6yi8i2l.amplifyapp.com",
+            callbackUrl: "https://master.d1i6lps1vc3v2e.amplifyapp.com",
         },
 
           async authorize(credentials, req) {
