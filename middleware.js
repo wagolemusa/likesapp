@@ -23,7 +23,7 @@ export default withAuth(async function middleware(req) {
 
 
 export const config = {
-    matcher: ["/admin/:path*", "/me/:path*", "https://master.d28j0wql6qmeva.amplifyapp.com"]
+    matcher: ["/admin/:path*", "/me/:path*", "/"]
 }
 
 
