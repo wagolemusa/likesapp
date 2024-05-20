@@ -8,9 +8,22 @@ import
  import AuthContext from "../../context/AuthContext";
 const DashordHeader = ({OpenSidebar})  => {
   const { user } = useContext(AuthContext)
+
+
   const logoutHandler = () => {
-    signOut();
-  }
+    signOut()
+        .then(() => {
+            // Redirect the user to the specified URL after logout
+            window.location.href = "https://master.d28j0wql6qmeva.amplifyapp.com";
+        })
+        .catch(error => {
+            console.error("Error occurred during logout:", error);
+            // Handle error if necessary
+        });
+}
+
+
+
   return (
     <header className='header'>
         <div className='menu-icon'>

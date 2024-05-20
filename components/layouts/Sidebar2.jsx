@@ -22,18 +22,7 @@ const Sidebarnav  = ({openSidebarToggle, OpenSidebar}) => {
 
     const { user } = useContext(AuthContext)
 
-//     const logoutHandler = () => {
-//       signOut()
-//           .then(() => {
-//               // Redirect the user to the specified URL after logout
-//               window.location.href = "http://localhost:3000";
-//           })
-//           .catch(error => {
-//               console.error("Error occurred during logout:", error);
-//               // Handle error if necessary
-//           });
-//   }
-  
+
 
     return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
