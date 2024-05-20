@@ -1,22 +1,31 @@
 'use client'
-
-import React from "react";
-
 import CustromPagination from "../layouts/CustromPagination";
+import React,{useState, useEffect} from "react";
+
 import '../layouts/styles.css'
 import axios from "axios";
 
+const StepData = () => {
 
-const StepData = async() => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await axios.get('http://localhost:3000/api/admin/step');
+                setData(response.data);
+            } catch (error) {
+                setError('Failed to fetch data');
+                console.error('Error fetching data:', error);
+            }
+        }
+    
+        fetchData();
+    }, []);
+    
 
-   const getSteps = async () => {
-    const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/step`);
-    return data;
-}
 
-    const data = await getSteps()
-
-  
     return (
 
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">

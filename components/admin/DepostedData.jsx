@@ -1,40 +1,26 @@
 'use client'
-
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import CustromPagination from "../layouts/CustromPagination";
-import '../layouts/styles.css'
-import axios from "axios";
+import axios from 'axios';
 
+const DepostedData = () =>{
 
-// export const getServerSideProps = async (context) => {
-//     try {
-//       const response = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
-//       const data = response.data;
-  
-//       return {
-//         props: {
-//           data,
-//         },
-//       };
-//     } catch (error) {
-//       console.error('Error fetching data:', error);
-  
-//       return {
-//         props: {
-//           data: null,
-//           error: 'Failed to fetch data',
-//         },
-//       };
-//     }
-//   };
+const [data, setData] = useState(null);
+const [error, setError] = useState(null);
 
-const DepostedData = async() => {
+useEffect(() => {
+    async function fetchData() {
+        try {
+            const response = await axios.get('http://localhost:3000/api/admin/depost/getdata');
+            setData(response.data);
+        } catch (error) {
+            setError('Failed to fetch data');
+            console.error('Error fetching data:', error);
+        }
+    }
 
- const getDeposits = async () => {
-     const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/depost/getdata`);
-     return data;
- }
-  const data = await getDeposits()
+    fetchData();
+}, []);
 
 
     return (
@@ -88,5 +74,6 @@ const DepostedData = async() => {
 
     );
 };
+
 
 export default DepostedData;

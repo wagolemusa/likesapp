@@ -1,18 +1,28 @@
 'use client'
-
-import React from "react";
+import React,{useState, useEffect} from "react";
 import CustromPagination from "../layouts/CustromPagination";
 import '../layouts/styles.css'
 import axios from "axios";
 
-const Message = async () => {
+const Message = () => {
 
-    const getMessage = async () => {
-        const { data } = await axios.get(`${process.env.ENVIRONMENT_URL}/api/admin/messages`);
-        return data;
-    }
-
-    const data = await getMessage()
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await axios.get('http://localhost:3000/api/admin/messages');
+                setData(response.data);
+            } catch (error) {
+                setError('Failed to fetch data');
+                console.error('Error fetching data:', error);
+            }
+        }
+    
+        fetchData();
+    }, []);
+    
 
     return (
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
