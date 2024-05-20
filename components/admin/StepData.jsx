@@ -5,7 +5,6 @@ import React,{useState, useEffect} from "react";
 import '../layouts/styles.css'
 import axios from "axios";
 
-
 const StepData = () => {
 
     const [data, setData] = useState(null);
