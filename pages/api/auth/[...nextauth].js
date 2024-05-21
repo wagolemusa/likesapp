@@ -60,11 +60,16 @@ export default async function auth(req, res) {
   
           return session;
         },
+        async redirect(url, baseUrl) {
+        //  "https://master.d28j0wql6qmeva.amplifyapp.com"
+          return baseUrl;
+        },
       },
       pages: {
         signIn: "/login",
       },
       secret: process.env.NEXTAUTH_SECRET,
+      baseUrl: process.env.BASE_URL || 'https://master.d28j0wql6qmeva.amplifyapp.com',
     });
   }
 

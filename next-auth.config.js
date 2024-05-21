@@ -1,0 +1,1 @@
+// export default { // Replace <your-domain> with your actual domain name baseUrl: https://<your-domain>.com, providers: [ // Add your authentication providers here ], // Add any other NextAuth configuration options here }; 
