@@ -90,10 +90,10 @@ import dbConnect from "../../../backend/config/dbConnect"
       providers: [
         CredentialsProvider({
           name: 'Credentials',
-          credentials: {
-            // Update callbackUrl here
-            callbackUrl: "https://master.d28j0wql6qmeva.amplifyapp.com",
-        },
+        //   credentials: {
+        //     // Update callbackUrl here
+        //     callbackUrl: "https://master.d28j0wql6qmeva.amplifyapp.com",
+        // },
           async authorize(credentials, req) {
             await dbConnect();
   
