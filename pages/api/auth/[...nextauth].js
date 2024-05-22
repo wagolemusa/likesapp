@@ -62,7 +62,7 @@ export default async function auth(req, res) {
         },
 
         async redirect(url, baseUrl) {
-          return Promise.resolve(url, baseUrl)
+          return Promise.resolve(baseUrl)
           // return baseUrl;
         },
 
