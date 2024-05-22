@@ -62,8 +62,9 @@ export default async function auth(req, res) {
         },
 
         async redirect(url, baseUrl) {
-          return Promise.resolve(baseUrl)
-          // return baseUrl;
+          // return Promise.resolve(baseUrl)
+          if (new URL(url).origin === baseUrl) return url
+          return baseUrl;
         },
 
         // async redirect({ url, baseUrl }) {
