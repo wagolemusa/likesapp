@@ -61,16 +61,16 @@ export default async function auth(req, res) {
           return session;
         },
 
-        async redirect({ url, baseUrl }) {
-          return baseUrl
-        },
-
         // async redirect({ url, baseUrl }) {
-        //   // Ensures the base URL is used correctly
-        //   if (url.startsWith("/")) return `${baseUrl}${url}`;
-        //   else if (new URL(url).origin === baseUrl) return url;
-        //   return baseUrl;
+        //   return baseUrl
         // },
+
+        async redirect({ url, baseUrl }) {
+          // Ensures the base URL is used correctly
+          if (url.startsWith("/")) return `${baseUrl}${url}`;
+          else if (new URL(url).origin === baseUrl) return url;
+          return baseUrl;
+        },
 
       },
       pages: {
