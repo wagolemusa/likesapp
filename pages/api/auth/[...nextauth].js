@@ -1,8 +1,8 @@
-// import NextAuth from "next-auth";
-// import CredentialsProvider from "next-auth/providers/credentials";
-// import User from '../../../backend/model/user';
-// import bcrypt from "bcryptjs";
-// import dbConnect from "../../../backend/config/dbConnect"
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import User from '../../../backend/model/user';
+import bcrypt from "bcryptjs";
+import dbConnect from "../../../backend/config/dbConnect"
 
 
 // export default async function auth(req, res) {
@@ -81,14 +81,6 @@
 //     });
 //   }
 
-
-
-
-  import NextAuth from 'next-auth';
-  import CredentialsProvider from 'next-auth/providers/credentials';
-  import dbConnect from '../../../lib/dbConnect';
-  import User from '../../../models/User';
-  import bcrypt from 'bcryptjs';
   
   export default async function auth(req, res) {
     return await NextAuth(req, res, {
