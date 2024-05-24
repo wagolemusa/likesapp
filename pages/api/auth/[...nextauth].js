@@ -124,7 +124,7 @@ import dbConnect from "../../../backend/config/dbConnect"
           return session;
         },
         async redirect({ url, base }) {
-          const base = "https://master.d28j0wql6qmeva.amplifyapp.com"
+          const base = "/"
           console.log(`Redirecting to: ${url}, Base URL: ${base}`);
           if (url.startsWith("/")) return `${base}${url}`;
           else if (new URL(url).origin === base) return url;
