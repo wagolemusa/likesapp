@@ -59,16 +59,16 @@ export default async function auth(req, res) {
         return session;
       },
       async redirect({ url, baseUrl }) {
-        if (url.startsWith("/")) return `${baseUrl}${url}`;
-        else if (new URL(url).origin === baseUrl) return url;
-        return baseUrl;
+        const base = process.env.NEXTAUTH_URL || baseUrl;
+        if (url.startsWith("/")) return `${base}${url}`;
+        else if (new URL(url).origin === base) return url;
+        return base;
       },
     },
     pages: {
       signIn: '/login',
     },
     secret: process.env.NEXTAUTH_SECRET,
-    baseUrl: process.env.NEXTAUTH_URL,
   });
 }
 
