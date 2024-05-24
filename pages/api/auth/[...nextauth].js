@@ -42,13 +42,15 @@ export default async function auth(req, res) {
         if (user) {
           token.user = user;
         }
+
         console.log("JWT Callback: ", token);
         return token;
       },
       async session({ session, token }) {
         session.user = token.user;
-        console.log("Session Callback: ", session);
         delete session?.user?.password;
+
+        console.log("Session Callback: ", session);
         return session;
       },
       async redirect({ url, baseUrl }) {
@@ -61,10 +63,8 @@ export default async function auth(req, res) {
     },
     pages: {
       signIn: '/login',
-      root:  '/'
     },
     secret: process.env.NEXTAUTH_SECRET,
-    baseUrl: process.env.NEXTAUTH_URL,
   });
 }
 
