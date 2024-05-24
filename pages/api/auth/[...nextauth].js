@@ -53,13 +53,13 @@ import dbConnect from "../../../backend/config/dbConnect"
 //         console.log("Session Callback: ", session);
 //         return session;
 //       },
-//       async redirect({ url, baseUrl }) {
-//         const base = process.env.NEXTAUTH_URL || baseUrl;
-//         console.log(`Redirecting to: ${url}, Base URL: ${base}`);
-//         if (url.startsWith("/")) return `${base}${url}`;
-//         else if (new URL(url).origin === base) return url;
-//         return base;
-//       },
+      // async redirect({ url, baseUrl }) {
+      //   const base = process.env.NEXTAUTH_URL || baseUrl;
+      //   console.log(`Redirecting to: ${url}, Base URL: ${base}`);
+      //   if (url.startsWith("/")) return `${base}${url}`;
+      //   else if (new URL(url).origin === base) return url;
+      //   return base;
+      // },
 //     },
 //     pages: {
 //       signIn: '/login',
@@ -130,7 +130,9 @@ import dbConnect from "../../../backend/config/dbConnect"
         },
       },
       pages: {
-        signIn: '/login',
+        signIn: process.env.NEXTAUTH_URL + '/login',
+        signOut: process.env.NEXTAUTH_URL + '/',
+        error: process.env.NEXTAUTH_URL + '/thanks'
       },
       secret: process.env.NEXTAUTH_SECRET,
       baseUrl: process.env.NEXTAUTH_URL || 'https://master.d28j0wql6qmeva.amplifyapp.com',
