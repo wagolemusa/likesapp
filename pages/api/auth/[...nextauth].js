@@ -79,8 +79,8 @@ import dbConnect from "../../../backend/config/dbConnect"
         CredentialsProvider({
           name: 'Credentials',
           credentials: {
-          email: { label: "Email", type: "email", placeholder: "email@example.com" },
-                    password: { label: "Password", type: "password" }
+                email: { label: "Email", type: "email", placeholder: "email@example.com" },
+                password: { label: "Password", type: "password" }
           },
           async authorize(credentials, req) {
             await dbConnect();
@@ -123,17 +123,19 @@ import dbConnect from "../../../backend/config/dbConnect"
   
           return session;
         },
-        async redirect({ url, baseUrl }) {
-          if (url.startsWith("/")) return `${baseUrl}${url}`;
-          else if (new URL(url).origin === baseUrl) return url;
-          return baseUrl;
+        async redirect({ url, base }) {
+          const base = "https://master.d28j0wql6qmeva.amplifyapp.com"
+          console.log(`Redirecting to: ${url}, Base URL: ${base}`);
+          if (url.startsWith("/")) return `${base}${url}`;
+          else if (new URL(url).origin === base) return url;
+          return base;
         },
       },
       pages: {
         signIn: '/login',
       },
       secret: process.env.NEXTAUTH_SECRET,
-      baseUrl: process.env.baseUrl || 'https://master.d28j0wql6qmeva.amplifyapp.com',
+      baseUrl: process.env.NEXTAUTH_URL
     });
   }
   
