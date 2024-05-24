@@ -123,20 +123,17 @@ import dbConnect from "../../../backend/config/dbConnect"
   
           return session;
         },
-        async redirect({ url, BASE_URL }) {
-          const base = process.env.NEXTAUTH_URL || BASE_URL;
-          console.log(`Redirecting to: ${url}, Base URL: ${base}`);
-          if (url.startsWith("/")) return `${base}${url}`;
-          else if (new URL(url).origin === base) return url;
-          return base;
-        }
+        async redirect({ url, baseUrl }) {
+          if (url.startsWith("/")) return `${baseUrl}${url}`;
+          else if (new URL(url).origin === baseUrl) return url;
+          return baseUrl;
+        },
       },
       pages: {
         signIn: '/login',
-        root: "/",
       },
       secret: process.env.NEXTAUTH_SECRET,
-      BASE_URL: process.env.NEXTAUTH_URL
+      baseUrl: process.env.NEXTAUTH_URL || 'https://master.d28j0wql6qmeva.amplifyapp.com',
     });
   }
   
