@@ -42,24 +42,18 @@ export default async function auth(req, res) {
         if (user) {
           token.user = user;
         }
-
-        if (req.url === '/api/auth/session?update') {
-          const updatedUser = await User.findById(token.user._id);
-          token.user = updatedUser;
-        }
-
+        console.log("JWT Callback: ", token);
         return token;
       },
       async session({ session, token }) {
         session.user = token.user;
-
-        // delete password from session
+        console.log("Session Callback: ", session);
         delete session?.user?.password;
-
         return session;
       },
       async redirect({ url, baseUrl }) {
         const base = process.env.NEXTAUTH_URL || baseUrl;
+        console.log(`Redirecting to: ${url}, Base URL: ${base}`);
         if (url.startsWith("/")) return `${base}${url}`;
         else if (new URL(url).origin === base) return url;
         return base;
@@ -71,7 +65,6 @@ export default async function auth(req, res) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 }
-
 
 // export default async function auth(req, res) {
 //     return await NextAuth(req, res, {
