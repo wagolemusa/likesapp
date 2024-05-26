@@ -9,29 +9,16 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 
 const Login = () => {
-  
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const router = useRouter();
-
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-
-    const data = await signIn("credentials", {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await signIn('credentials', {
       email,
       password,
-      callbackUrl: 'https://master.d28j0wql6qmeva.amplifyapp.com/',
+      callbackUrl: '/' // This will redirect to the home page after login
     });
-
-    if (data?.error) {
-      toast.error(data?.error);
-    }
-
-    if (data?.ok) {
-      router.push('/');
-    }
   };
 
   return (
@@ -39,7 +26,7 @@ const Login = () => {
       style={{ maxWidth: "480px" }}
       className="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg"
     >
-      <form onSubmit={submitHandler}>
+      <form onSubmit={handleSubmit}>
         <h2 className="mb-5 text-2xl font-semibold">Login</h2>
 
         <div className="mb-4">
