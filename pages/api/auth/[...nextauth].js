@@ -56,13 +56,13 @@ export default async function auth(req, res) {
       async redirect({ url, baseUrl }) {
         const base = process.env.NEXTAUTH_URL || baseUrl;
         console.log(`Redirecting to: ${url}, Base URL: ${base}`);
-        if (url.startsWith("base")) return `${base}${url}`;
+        if (url.startsWith("/")) return `${base}${url}`;
         else if (new URL(url).origin === base) return url;
         return base;
       },
     },
     pages: {
-        signIn: process.env.NEXTAUTH_URL + '/step' || 'https://master.d28j0wql6qmeva.amplifyapp.com',
+        signIn: process.env.NEXTAUTH_URL + 'https://master.d28j0wql6qmeva.amplifyapp.com/login' || 'https://master.d28j0wql6qmeva.amplifyapp.com',
         signOut: process.env.NEXTAUTH_URL + '/',
         error: process.env.NEXTAUTH_URL + '/thanks'
     },
