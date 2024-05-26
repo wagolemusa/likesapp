@@ -124,7 +124,7 @@ import dbConnect from "../../../backend/config/dbConnect"
           return session;
         },
         async redirect({ url, baseUrl }) {
-          if (url.startsWith("https://master.d28j0wql6qmeva.amplifyapp.com")) return `${baseUrl}${url}`;
+          if (url.startsWith("h")) return `${baseUrl}${url}`;
           else if (new URL(url).origin === baseUrl) return url;
           return baseUrl;
         },
