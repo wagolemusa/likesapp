@@ -17,7 +17,7 @@ export default async function auth(req, res) {
           email: { label: "Email", type: "email", placeholder: "email@example.com" },
           password: { label: "Password", type: "password" }
         },
-        async authorize(credentials, req) {
+        async authorize(credentials) {
           await dbConnect();
 
           const { email, password } = credentials;
@@ -42,34 +42,104 @@ export default async function auth(req, res) {
         if (user) {
           token.user = user;
         }
-
-        console.log("JWT Callback: ", token);
         return token;
       },
       async session({ session, token }) {
         session.user = token.user;
         delete session?.user?.password;
-
-        console.log("Session Callback: ", session);
         return session;
       },
-      callbacks: {
-        async redirect({ url, baseUrl }) {
-          const base = process.env.NEXTAUTH_URL || baseUrl;
-          const redirectUrl = url.startsWith('/') ? `${base}${url}` : url;
-          return redirectUrl;
+      async redirect({ url, baseUrl }) {
+        const base = process.env.NEXTAUTH_URL || baseUrl;
+        if (url.startsWith('/')) {
+          return `${base}${url}`;
         }
+        // Redirect to home if the URL is the home page or root
+        if (url === base || url === `${base}/`) {
+          return base;
+        }
+        return url;
       }
     },
     pages: {
-        signIn: process.env.NEXTAUTH_URL + '/login',
-        signOut: process.env.NEXTAUTH_URL + '/',
-        error: process.env.NEXTAUTH_URL + '/thanks'
+      signIn: `${process.env.NEXTAUTH_URL}/login`,
+      signOut: `${process.env.NEXTAUTH_URL}/`,
+      error: `${process.env.NEXTAUTH_URL}/thanks`
     },
     secret: process.env.NEXTAUTH_SECRET,
-    baseUrl: process.env.NEXTAUTH_URL,
   });
 }
+
+
+
+
+
+
+// export default async function auth(req, res) {
+//   return await NextAuth(req, res, {
+//     session: {
+//       strategy: 'jwt',
+//     },
+//     providers: [
+//       CredentialsProvider({
+//         name: 'Credentials',
+//         credentials: {
+//           email: { label: "Email", type: "email", placeholder: "email@example.com" },
+//           password: { label: "Password", type: "password" }
+//         },
+//         async authorize(credentials, req) {
+//           await dbConnect();
+
+//           const { email, password } = credentials;
+//           const user = await User.findOne({ email }).select("+password");
+
+//           if (!user) {
+//             throw new Error("Invalid Email or Password");
+//           }
+
+//           const isPasswordMatched = await bcrypt.compare(password, user.password);
+
+//           if (!isPasswordMatched) {
+//             throw new Error("Invalid Email or Password");
+//           }
+
+//           return user;
+//         },
+//       }),
+//     ],
+//     callbacks: {
+//       async jwt({ token, user }) {
+//         if (user) {
+//           token.user = user;
+//         }
+
+//         console.log("JWT Callback: ", token);
+//         return token;
+//       },
+//       async session({ session, token }) {
+//         session.user = token.user;
+//         delete session?.user?.password;
+
+//         console.log("Session Callback: ", session);
+//         return session;
+//       },
+//       callbacks: {
+//         async redirect({ url, baseUrl }) {
+//           const base = process.env.NEXTAUTH_URL || baseUrl;
+//           const redirectUrl = url.startsWith('/') ? `${base}${url}` : url;
+//           return redirectUrl;
+//         }
+//       }
+//     },
+//     pages: {
+//         signIn: process.env.NEXTAUTH_URL + '/login',
+//         signOut: process.env.NEXTAUTH_URL + '/',
+//         error: process.env.NEXTAUTH_URL + '/thanks'
+//     },
+//     secret: process.env.NEXTAUTH_SECRET,
+//     baseUrl: process.env.NEXTAUTH_URL,
+//   });
+// }
 
   
   // export default async function auth(req, res) {
