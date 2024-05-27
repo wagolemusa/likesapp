@@ -53,15 +53,15 @@ export default async function auth(req, res) {
         console.log("Session Callback: ", session);
         return session;
       },
-
-      async redirect(){
-          const base = process.env.NEXTAUTH_URL || baseUrl;
-          const redirectUrl = url.startsWith('/step')
-          return redirectUrl;
-        }
+      async redirect({ url, baseUrl }) {
+        const base = process.env.NEXTAUTH_URL || baseUrl;
+        console.log(`Redirecting to: ${url}, Base URL: ${base}`);
+        if (url.startsWith("/")) return `${base}${url}`;
+        else if (new URL(url).origin === base) return url;
+        return base;
+      },
     },
-
-    pages: {
+    page: {
         signIn: process.env.NEXTAUTH_URL + '/login',
         signOut: process.env.NEXTAUTH_URL + '/',
         error: process.env.NEXTAUTH_URL + '/thanks'
