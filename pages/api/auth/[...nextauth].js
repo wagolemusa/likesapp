@@ -56,18 +56,15 @@ export default async function auth(req, res) {
 
       async redirect(){
           const base = process.env.NEXTAUTH_URL || baseUrl;
-          return base
+          const redirectUrl = url.startsWith('/step')
+          return redirectUrl;
         }
     },
 
-    page:{
-      HomePage :process.env.NEXTAUTH_URL + '/'
-    },
-    
     pages: {
         signIn: process.env.NEXTAUTH_URL + '/login',
         signOut: process.env.NEXTAUTH_URL + '/',
-        error: process.env.NEXTAUTH_URL + '/'
+        error: process.env.NEXTAUTH_URL + '/thanks'
     },
     secret: process.env.NEXTAUTH_SECRET,
     baseUrl: process.env.NEXTAUTH_URL || 'https://master.d28j0wql6qmeva.amplifyapp.com',
