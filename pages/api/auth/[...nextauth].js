@@ -51,9 +51,7 @@ export default async function auth(req, res) {
       },
       async redirect({ url, baseUrl }) {
         const base = process.env.NEXTAUTH_URL || baseUrl;
-        if (url.startsWith('/')) {
-          return `${base}${url}`;
-        }
+       
         // Redirect to home if the URL is the home page or root
         if (url === base || url === `${base}/`) {
           return base;
