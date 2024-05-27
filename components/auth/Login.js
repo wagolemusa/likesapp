@@ -6,8 +6,6 @@ import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter, useSearchParams } from "next/navigation";
 
-
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
