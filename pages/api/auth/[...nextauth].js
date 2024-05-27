@@ -62,7 +62,7 @@ export default async function auth(req, res) {
       },
     },
     pages: {
-        signIn: process.env.NEXTAUTH_URL + '/' || 'https://master.d28j0wql6qmeva.amplifyapp.com',
+        signIn: process.env.NEXTAUTH_URL + '/login',
         signOut: process.env.NEXTAUTH_URL + '/',
         error: process.env.NEXTAUTH_URL + '/thanks'
     },
