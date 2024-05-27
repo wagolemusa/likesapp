@@ -60,6 +60,10 @@ export default async function auth(req, res) {
         }
     },
 
+    page:{
+      HomePage :process.env.NEXTAUTH_URL + '/'
+    },
+    
     pages: {
         signIn: process.env.NEXTAUTH_URL + '/login',
         signOut: process.env.NEXTAUTH_URL + '/',
