@@ -54,10 +54,10 @@ export default async function auth(req, res) {
         return session;
       },
       async redirect({ url, baseUrl }) {
-        const base = process.env.NEXTAUTH_URL || baseUrl;
-        return url;
-       
-      },
+          const base = process.env.NEXTAUTH_URL || baseUrl;
+          const redirectUrl = url.startsWith('/') ? `${base}${url}` : url;
+          return redirectUrl;
+        }
     },
     pages: {
         signIn: process.env.NEXTAUTH_URL + '/login',
