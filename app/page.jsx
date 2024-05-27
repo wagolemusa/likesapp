@@ -12,7 +12,6 @@ const HomePage = () => {
 
     const { data } = useSession();
   
-  
     useEffect(() => {
       if (data) {
         setUser(data?.user);
