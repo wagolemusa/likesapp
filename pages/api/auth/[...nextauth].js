@@ -49,8 +49,8 @@ export default async function auth(req, res) {
         delete session?.user?.password;
         return session;
       },
-      async redirect({ url, baseUrl }) {
-        const base = process.env.NEXTAUTH_URL || baseUrl;
+      async redirect({ url }) {
+        const base = process.env.NEXTAUTH_URL;
        
         // Redirect to home if the URL is the home page or root
         if (url === base || url === `${base}/`) {
