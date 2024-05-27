@@ -55,10 +55,8 @@ export default async function auth(req, res) {
       },
       async redirect({ url, baseUrl }) {
         const base = process.env.NEXTAUTH_URL || baseUrl;
-        console.log(`Redirecting to: ${url}, Base URL: ${base}`);
-        if (url.startsWith("/")) return `${base}${url}`;
-        else if (new URL(url).origin === base) return url;
-        return base;
+        return url;
+       
       },
     },
     pages: {
