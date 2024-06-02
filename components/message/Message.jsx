@@ -41,6 +41,12 @@ const CreateMessage = () => {
     }
 
     return (
+        <>
+        <div className="topback">
+            <div className="container">
+                <h2>CUSTOMER SERVICE</h2>
+            </div>
+        </div>
         <section className="cantactStyle">
             <div className="container">
                 <div className="row">
@@ -74,6 +80,7 @@ const CreateMessage = () => {
                 </div>
             </div>
         </section>
+        </>
 
     )
 

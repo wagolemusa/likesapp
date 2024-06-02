@@ -1,22 +1,36 @@
 "use client"
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import AuthContext from "../../context/AuthContext";
 import CustromPagination  from '../layouts/CustromPagination'
+import axios from "axios"
 
-const Users = ({ data }) => {
+const Users = () => {
   
-    const { error, deleteUser, clearErrors } = useContext(AuthContext);
-  
+    const {  deleteUser } = useContext(AuthContext);
+
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+   
+    
     useEffect(() => {
-      if (error) {
-        toast.error(error);
-        clearErrors();
-      }
-    }, [error]);
+        async function fetchData() {
+            try {
+                const response = await axios.get('https://master.d28j0wql6qmeva.amplifyapp.com/api/admin/users');
+                setData(response.data);
+            } catch (error) {
+                setError('Failed to fetch data');
+                console.error('Error fetching data:', error);
+            }
+        }
+    
+        fetchData();
+    }, []);
+    
   
+
     const deleteHandler = (id) => {
       deleteUser(id);
     };

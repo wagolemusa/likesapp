@@ -1,4 +1,4 @@
-import CreateStepHotel from "../../components/stepHotel/StepHotel";
+import CreateStepHotel from "../../components/hotels/StepHotel";
 
 const CreateStepHotelPage = () => {
     return<CreateStepHotel />

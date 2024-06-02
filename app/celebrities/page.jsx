@@ -1,4 +1,4 @@
-import CreateStepBeach from "../../components/stepBeach/StepBeach";
+import CreateStepBeach from "../../components/celebrities/StepBeach";
 
 
 const CreateStepBeachPage = () => {

@@ -650,7 +650,7 @@
   padding-bottom: 50px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://media.istockphoto.com/id/1483765654/photo/best-quality-assurance-service-dark-tones.jpg?s=612x612&w=0&k=20&c=lffqiW-uw1iDwRr-BiQlm4e6Nv-HkzIQRv2_9MUBWxk=");
+  background-image: url("https://img.freepik.com/free-photo/authentic-italian-pasta_24972-892.jpg");
 }
 
 .step3 h2{
@@ -671,6 +671,106 @@
   letter-spacing: 0px;
   font-weight: 400;
   cursor: inherit;
+}
+
+.you3 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1594623930572-300a3011d9ae?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.you3 h2{
+  color: #FFFFFF;
+  font-size: 48px;
+  /* text-align: center; */
+  font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+  font-weight: 900;
+  line-height: 70px;
+}
+
+.you3 p {
+  font-family: OpenSans-Regular;
+  font-size: 2.1rem;
+  color: rgb(255, 255, 255);
+  line-height: 3.2rem;
+  text-align: left;
+  letter-spacing: 0px;
+  font-weight: 400;
+  cursor: inherit;
+}
+
+
+.country {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://i0.wp.com/picjumbo.com/wp-content/uploads/sunset-golden-hour-in-kenya-safari-free-photo.jpg?w=2210&quality=70");
+}
+
+.country h2{
+  color: #FFFFFF;
+  font-size: 48px;
+  /* text-align: center; */
+  font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+  font-weight: 900;
+  line-height: 70px;
+}
+
+.country p {
+  font-family: OpenSans-Regular;
+  font-size: 2.1rem;
+  color: rgb(255, 255, 255);
+  line-height: 3.2rem;
+  text-align: left;
+  letter-spacing: 0px;
+  font-weight: 400;
+  cursor: inherit;
+}
+
+
+.celeb {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+.celeb h2{
+  color: #FFFFFF;
+  font-size: 48px;
+  /* text-align: center; */
+  font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+  font-weight: 900;
+  line-height: 70px;
+}
+
+.celeb p {
+  font-family: OpenSans-Regular;
+  font-size: 2.1rem;
+  color: rgb(255, 255, 255);
+  line-height: 3.2rem;
+  text-align: left;
+  letter-spacing: 0px;
+  font-weight: 400;
+  cursor: inherit;
+}
+
+.topback {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://www.v7world.com/media/service_banner.jpg");
+}
+
+.topback h2{
+  font-size: 40px;
+  color: #000000;
+  font-weight: 600;
 }
 
 .btnStep {
@@ -726,12 +826,17 @@
 
 .stepRefer p{
   color: #4F4F4F;
-  font-size: 48px;
+  font-size: 40px;
   /* text-align: center; */
   font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
   font-weight: 900;
-  line-height: 70px;
-  text-align: center;
+  line-height: 60px;
+  
+}
+
+video {
+  padding-top: 100px;
+  width: 800px;
 }
 
 .cantactStyle {
@@ -800,7 +905,7 @@
   padding-bottom: 60px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://t3.ftcdn.net/jpg/07/14/01/44/240_F_714014489_t70OI1L0R4OrYsX4m6l7eNzi6BDyvZcq.jpg");
+  background-image: url("https://static.vecteezy.com/system/resources/previews/025/751/345/non_2x/business-growth-wallpaper-with-the-glowing-bar-chart-static-and-up-arrow-stock-market-growth-in-futuristic-technology-style-graphic-of-successful-financial-development-on-the-dark-background-vector.jpg");
 }
 .homes h2{
   color: #FFFFFF;
@@ -809,6 +914,24 @@
   font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
   font-weight: 900;
   line-height: 70px;
+}
+
+.homes h3{
+  color: #FFF;
+  font-size: 28px;
+  /* text-align: center; */
+  font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+.homes p{
+  color: #EEEEEE;
+  font-size: 22px;
+  /* text-align: center; */
+  font-family: var(--webull-font-family-extra-bold, OpenSans-Extrabold,Arial,sans-serif) !important;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 .btn0012 {
@@ -836,8 +959,8 @@
 }
 
 .homeTwo {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .home013 {

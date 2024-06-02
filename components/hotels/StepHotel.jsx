@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
-const CreateStepAir = () => {
+const CreateStepHotel = () => {
 
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
@@ -14,14 +14,14 @@ const CreateStepAir = () => {
         e.preventDefault();
         setError(null);
 
-        const createAirport = {
+        const createHotel = {
             like: "liked",
-            step: "Airports",
+            step: "Hotels",
             user
         }
 
         try {
-            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createAirport, {
+            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createHotel, {
 
                 headers: {
                     'Accept': 'application/json',
@@ -30,7 +30,7 @@ const CreateStepAir = () => {
             });
 
             if (response.status === 201) {
-                window.location.replace("/airport");
+                window.location.replace("/hotels");
             }
 
             setSuccess(response.data.message);
@@ -49,7 +49,7 @@ const CreateStepAir = () => {
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <h2>Like and Get reworded</h2>
+                    <h2>Like and Earn <span>150000</span></h2>
                     <p>Take advantage of our zero commission rates
                         just by Click the button bellow
                     </p>
@@ -58,7 +58,7 @@ const CreateStepAir = () => {
                             type="submit"
                             className="btnStep"
                         >
-                            Like Airports
+                            Like Hotels
                         </button>
                     </form>
                 </div>
@@ -96,7 +96,7 @@ const CreateStepAir = () => {
 
 }
 
-export default CreateStepAir
+export default CreateStepHotel
 
 
 

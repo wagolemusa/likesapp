@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
-const CreateStepHotel = () => {
+const CreateGame = () => {
 
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
@@ -14,14 +14,14 @@ const CreateStepHotel = () => {
         e.preventDefault();
         setError(null);
 
-        const createHotel = {
+        const createGame = {
             like: "liked",
-            step: "Hotel",
+            step: "countries",
             user
         }
 
         try {
-            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createHotel, {
+            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createGame, {
 
                 headers: {
                     'Accept': 'application/json',
@@ -30,7 +30,7 @@ const CreateStepHotel = () => {
             });
 
             if (response.status === 201) {
-                window.location.replace("/hotel");
+                window.location.replace("/country");
             }
 
             setSuccess(response.data.message);
@@ -45,20 +45,19 @@ const CreateStepHotel = () => {
 
     return (
         <>
-        <section className="step3">
+        <section className="country">
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <h2>Like and Get reworded</h2>
-                    <p>Take advantage of our zero commission rates
-                        just by Click the button bellow
+                    <h2>Like and Earn 250000</h2>
+                    <p>We increase the popularity of the clients's businesses like best Towns on internet through likes
                     </p>
                     <form onSubmit={handleSave}>
                         <button
                             type="submit"
                             className="btnStep"
                         >
-                            Like Hotels
+                            Like countries
                         </button>
                     </form>
                 </div>
@@ -96,7 +95,7 @@ const CreateStepHotel = () => {
 
 }
 
-export default CreateStepHotel
+export default CreateGame
 
 
 

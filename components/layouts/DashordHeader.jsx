@@ -14,7 +14,7 @@ const DashordHeader = ({OpenSidebar})  => {
     signOut()
         .then(() => {
             // Redirect the user to the specified URL after logout
-            window.location.href = "https://master.d28j0wql6qmeva.amplifyapp.com";
+            window.location.href = "/";
         })
         .catch(error => {
             console.error("Error occurred during logout:", error);

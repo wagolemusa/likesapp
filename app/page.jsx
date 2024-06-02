@@ -24,8 +24,17 @@ const Page = () => {
             <section className="homes">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6">
-                            <h2>EARN BY LIKE TODAY! YOUR IDLE CASH IS WORTH MORE THAN YOU CAN IMAGINE</h2>
+                        <div className="col-md-8">
+                            <h2>
+                            The influencer relies on partners to increase customer traffic.</h2>
+                            
+                            <h3>Your role in this work is to rate 5 stars ⭐️ ⭐️ ⭐️ ⭐️ ⭐️ on our partner's location</h3> 
+                            <br/> 
+                            <p>
+                                Send me a screenshot and I will pay 10R$.
+                                You can earn $1,000 to $3,000 a day just by using your cell phone
+                            </p>
+                            
 
                             {user && user.links && (
                             <Link href={`/${user.links}`}>
@@ -37,7 +46,7 @@ const Page = () => {
                               
                             </Link>      */}
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-4">
 
                         </div>
                     </div>
@@ -47,16 +56,20 @@ const Page = () => {
                 <div className="container">
                     <div className="row">
 
-                          <div className="col-md-6 home013">
+                          <div className="col-md-4 home013">
                             <video playsinline="" autoplay="" preload="none" poster="https://wbstatic.webullfintech.com/v1/webull-us-g/assets/955d2861b64792d1e38e946cdcda6dc6.webp" loop=""><source type="video/webm" src="https://wbstatic.webullfintech.com/v1/webull-us-g/assets/befe8cc0a71f86d0ecbc82af510296f3.webm" data-src="https://wbstatic.webullfintech.com/v1/webull-us-g/assets/befe8cc0a71f86d0ecbc82af510296f3.webm" />
                                 <source type="video/mp4" src="https://wbstatic.webullfintech.com/v1/webull-us-g/assets/701892a5a456e11266c7a9f36141b3e6.mp4" data-src="https://wbstatic.webullfintech.com/v1/webull-us-g/assets/701892a5a456e11266c7a9f36141b3e6.mp4" /></video>
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-8">
                             <div className="stepRefer">
-                                <center>
-                                    <p>Earn commission for referring new users to the system</p>
+
+                                <p>
+                                For each task(s) completed, we will make payment through your telegram wallet  account.
+                                </p>
+                                <hr/>
+                                <h3>Earn commission for referring new users to the system</h3>
                                     <button className="btnStep1">Refer</button>
-                                </center>
+                                
 
                             </div>
                         </div>

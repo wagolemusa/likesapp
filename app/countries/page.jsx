@@ -1,5 +1,5 @@
 
-import CreateGame from "../../components/stepGame/StepGame";
+import CreateGame from "../../components/countries/StepGame";
 
 const CreateGamePage = () => {
     return <CreateGame />
