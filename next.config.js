@@ -6,7 +6,7 @@ const nextConfig = {
     },
 
     env: {
-        NEXTAUTH_URL: "https://master.d28j0wql6qmeva.amplifyapp.com",
+        NEXTAUTH_URL: "http://localhost:3000",
         DB_URL: "mongodb+srv://homiemusa:djrefuge@cluster0.ufagbex.mongodb.net/likes",
         BASE_URL: "https://master.d28j0wql6qmeva.amplifyapp.com",
         CLOUND_NAME:"xycoders",
