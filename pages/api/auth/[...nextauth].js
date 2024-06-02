@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import User from '../../../backend/model/user';
 import bcrypt from "bcryptjs";
 import dbConnect from "../../../backend/config/dbConnect"
-
+// import { signIn } from "next-auth/client";
 
 export default async function auth(req, res) {
   return await NextAuth(req, res, {
