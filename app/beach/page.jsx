@@ -1,4 +1,4 @@
-import Beachview from "../../components/beach/Beach";
+import Beachview from "../../components/celeb/Beach";
 
 
 const beachView = () =>{
