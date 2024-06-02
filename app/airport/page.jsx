@@ -1,4 +1,4 @@
-import AirPort from "../../components/airport/Airport";
+import AirPort from "../../components/restaurant/Airport";
 
 
 const airportView = () => {

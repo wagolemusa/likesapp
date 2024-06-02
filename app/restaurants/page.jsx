@@ -1,4 +1,4 @@
-import CreateStepAir from "../../components/stepAirport/StepAirport"
+import CreateStepAir from "../../components/restaurants/StepAirport"
 
 const CreateAirPage = () => {
     

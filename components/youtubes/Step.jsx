@@ -16,7 +16,7 @@ const CreateStep = () => {
 
         const createSteps = {
             like: "liked",
-            step: "stepOne",
+            step: "youtube",
             user
         }
 
@@ -30,7 +30,7 @@ const CreateStep = () => {
             });
 
             if (response.status === 201) {
-                window.location.replace("/youtube");
+                window.location.replace("/youtubes");
             }
 
             setSuccess(response.data.message);
@@ -45,20 +45,19 @@ const CreateStep = () => {
 
     return (
         <>
-        <section className="step3">
+        <section className="you3">
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <h2>Like and Get reworded</h2>
-                    <p>Take advantage of our zero commission rates
-                        just by Click the button bellow
+                    <h2>Like and Earn <span>50000</span></h2>
+                    <p>We increase the popularity of the clients's businesses like Youtube Video on internet through likes
                     </p>
                     <form onSubmit={handleSave}>
                         <button
                             type="submit"
                             className="btnStep"
                         >
-                            Like YouTube
+                            Like YouTube videos
                         </button>
                     </form>
                 </div>

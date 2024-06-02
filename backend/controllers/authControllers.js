@@ -7,7 +7,6 @@ import bcrypt from "bcryptjs"
 
 export const registerUser = async(req, res) => {
     const { name, username, phone, email, password } = req.body;
-
     const user = await User.create({
         name,
         username,
@@ -38,18 +37,16 @@ export const updateProfile = async (req, res) => {
 export const updatePassword = async (req, res, next) => {
   const user = await User.findById(req.user._id).select("+password");
 
-  console.log("current", req.body.currentPassword)
-  console.log("New", req.body.newPassword)
+  // console.log("current", req.body.currentPassword)
+  // console.log("New", req.body.newPassword)
   
   const isPasswordMatched = await bcrypt.compare(
     req.body.currentPassword,
     user.password
   );
-
   if (!isPasswordMatched) {
     return next(new ErrorHandler("Old password is incorrect", 400));
   }
-
   user.password = req.body.newPassword;
   await user.save();
 
@@ -89,7 +86,6 @@ export const updateUser = async (req, res) => {
 };
 
 
-
 // Delete user
 export const deleteUsers = async (req, res) => {
   const user = await User.findById(req.query.id)
@@ -102,20 +98,17 @@ export const deleteUsers = async (req, res) => {
   });
 };
 
-
 // get all users
 export const getUsers = async (req, res) => {
-  const resPerPage = 2;
+  // const resPerPage = 1;
   const userCount = await User.countDocuments();
-
   const apiFilters = new APIFilters(User.find(), req.query).pagination(
-    resPerPage
+    // resPerPage
   );
   const users = await apiFilters.query
-
   res.status(200).json({
     userCount,
-    resPerPage,
+    // resPerPage,
     users,
   });
 };

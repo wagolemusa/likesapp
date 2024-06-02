@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
-const CreateGame = () => {
+const CreateStepAir = () => {
 
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
@@ -14,14 +14,14 @@ const CreateGame = () => {
         e.preventDefault();
         setError(null);
 
-        const createGame = {
+        const createAirport = {
             like: "liked",
-            step: "Game",
+            step: "restaurants",
             user
         }
 
         try {
-            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createGame, {
+            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createAirport, {
 
                 headers: {
                     'Accept': 'application/json',
@@ -30,7 +30,7 @@ const CreateGame = () => {
             });
 
             if (response.status === 201) {
-                window.location.replace("/game");
+                window.location.replace("/restaurant");
             }
 
             setSuccess(response.data.message);
@@ -49,16 +49,15 @@ const CreateGame = () => {
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <h2>Like and Get reworded</h2>
-                    <p>Take advantage of our zero commission rates
-                        just by Click the button bellow
+                    <h2>Like and Earn <span>100000</span></h2>
+                    <p>We increase the popularity of the clients's businesses like restaurant on internet through likes
                     </p>
                     <form onSubmit={handleSave}>
                         <button
                             type="submit"
                             className="btnStep"
                         >
-                            Like Gameparks
+                            Like Restaurants
                         </button>
                     </form>
                 </div>
@@ -96,7 +95,7 @@ const CreateGame = () => {
 
 }
 
-export default CreateGame
+export default CreateStepAir
 
 
 

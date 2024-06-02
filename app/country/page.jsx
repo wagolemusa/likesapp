@@ -1,6 +1,6 @@
 
 
-import Gameview from "../../components/game/Game"
+import Gameview from "../../components/country/Game"
 
 const gamePage = () => {
 

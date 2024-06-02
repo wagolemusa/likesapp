@@ -58,7 +58,7 @@ const Sidebarnav  = ({openSidebarToggle, OpenSidebar}) => {
 <li className='sidebar-list-item'>
 <BsPeopleFill className='icon'/>
     <a href="/admin/step">
-        Step
+        Tasks
     </a>
 </li>
 <li className='sidebar-list-item'>

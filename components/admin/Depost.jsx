@@ -79,11 +79,12 @@ const Depost = ({ data }) => {
                     onChange={(e) => setSteps(e.target.value)}
                 >
                 
-                <option>stepHotel</option>
-                <option>stepGame</option>
-                <option >stepBeach</option>
-                <option >step</option>
-                <option >stepAirport</option>
+                <option>youtube</option>
+                <option>restaurants</option>
+                <option >hotels</option>
+                <option >celebrities</option>
+                <option >countries</option>
+                <option>scenaries</option>
 
 
             </select>

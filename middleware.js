@@ -7,7 +7,7 @@ export default withAuth(async function middleware(req) {
     const userRole = req?.nextauth?.token?.user?.role
 
     if(url?.startsWith("/admin") && userRole !== "admin"){
-        return NextResponse.redirect(new URL("https://master.d28j0wql6qmeva.amplifyapp.com", req.url))
+        return NextResponse.redirect(new URL("/", req.url))
     }
 
 },

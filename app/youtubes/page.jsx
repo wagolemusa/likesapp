@@ -1,4 +1,4 @@
-import CreateStep from "../../components/step/Step";
+import CreateStep from "../../components/youtubes/Step";
 
 
 const StepPage = () => {

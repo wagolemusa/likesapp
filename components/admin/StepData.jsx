@@ -4,6 +4,7 @@ import React,{useState, useEffect} from "react";
 
 import '../layouts/styles.css'
 import axios from "axios";
+import Link from "next/link";
 
 const StepData = () => {
 
@@ -30,20 +31,20 @@ const StepData = () => {
 
         <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
                 <h1 className="text-3xl my-5 ml-4 font-bold">
-                    {/* ({ data?.productsCount}) <Link href="/admin/customer/new" className="btn btn-primary">Create Customer</Link> */}
+                    <Link href="/me" className="btn btn-primary">Back</Link> Tasks operated
 
                 </h1>
             <table className="table w-full text-sm text-left">
                 <thead className="text-l text-gray-700 uppercase">
                     <tr>
                         <th scope="col" className="px-6 py-3">
-                            Like
+                            USERS
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Links
+                            Likes
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            User
+                            Tasks
                         </th>
                         
                     

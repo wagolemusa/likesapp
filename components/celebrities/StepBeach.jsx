@@ -16,7 +16,7 @@ const CreateStepBeach = () => {
 
         const createBeach = {
             like: "liked",
-            step: "Beaches",
+            step: "celebrities",
             user
         }
 
@@ -30,7 +30,7 @@ const CreateStepBeach = () => {
             });
 
             if (response.status === 201) {
-                window.location.replace("/beach");
+                window.location.replace("/celeb");
             }
 
             setSuccess(response.data.message);
@@ -45,20 +45,20 @@ const CreateStepBeach = () => {
 
     return (
         <>
-        <section className="step3">
+        <section className="celeb">
         <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <h2>Like and Get reworded</h2>
-                    <p>Take advantage of our zero commission rates
-                        just by Click the button bellow
+                    <h2>Like and Earn <span>200000</span></h2>
+                    <p>We increase the popularity of the clients's businesses like celebrities on internet through likes
                     </p>
+                    
                     <form onSubmit={handleSave}>
                         <button
                             type="submit"
                             className="btnStep"
                         >
-                            Like Beaches
+                            Like Celebrities
                         </button>
                     </form>
                 </div>
