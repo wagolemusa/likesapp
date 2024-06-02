@@ -49,29 +49,19 @@ export default async function auth(req, res) {
         delete session?.user?.password;
         return session;
       },
-
-      async redirect({ baseUrl, url }) {
-        const redirectUrl = decodeURIComponent(url);
-        const callbackIndex = redirectUrl.indexOf('callbackUrl=%2F');
-        
-        if (callbackIndex > -1) {
-          const callbackPath = redirectUrl.slice(callbackIndex + 'callbackUrl='.length);
-          
-          // If callbackPath includes the baseUrl, return just the baseUrl
-          if (callbackPath.includes(baseUrl)) {
-            return baseUrl;
-          }
-          
-          // Otherwise, return the full path
-          return callbackPath.startsWith('/') ? baseUrl + callbackPath : callbackPath;
+      
+      async redirect({ url }) {
+        const base = process.env.NEXTAUTH_URL;
+        // Redirect to home if the URL is the home page or root
+        if (url === base || url === `${base}/`) {
+          return base;
         }
-        
         return url;
-      },
+      }
 
     //   async redirect({ baseUrl, url }) {
     //     const redirectUrl = decodeURIComponent(url);
-    //     const callbackIndex = redirectUrl.indexOf('callbackUrl=%2F');
+    //     const callbackIndex = redirectUrl.indexOf('callbackUrl=');
     //     if (callbackIndex > -1) {
     //         const callbackPath = redirectUrl.slice(callbackIndex + 12);
     //         // If I try to login from my homepage, the nested callbackUrl contains the full baseUrl.
@@ -80,28 +70,16 @@ export default async function auth(req, res) {
     //     }
     //     return url;
     // },
-
-
-    // async redirect({ url, baseUrl }) {
-    //   const redirectUrl = decodeURIComponent(url)
-    //   const callbackIndex = redirectUrl.lastIndexOf('?callbackUrl=');
-    
-    //   if (callbackIndex > -1) {
-    //     const callbackPath = redirectUrl.slice(callbackIndex);
-    //     return callbackPath.includes(baseUrl) ? callbackPath : baseUrl + callbackPath;
-    //   }
-    
-    //   return baseUrl
-    // },
     },
     pages: {
-      signIn: `${process.env.NEXTAUTH_URL}/`,
+      signIn: `${process.env.NEXTAUTH_URL}/login`,
       signOut: `${process.env.NEXTAUTH_URL}/`,
       error: `${process.env.NEXTAUTH_URL}/thanks`
     },
     secret: process.env.NEXTAUTH_SECRET,
   });
 }
+
 
 
 
