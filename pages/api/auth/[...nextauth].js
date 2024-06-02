@@ -95,7 +95,7 @@ export default async function auth(req, res) {
     // },
     },
     pages: {
-      signIn: `${process.env.NEXTAUTH_URL}/register`,
+      signIn: `${process.env.NEXTAUTH_URL}/`,
       signOut: `${process.env.NEXTAUTH_URL}/`,
       error: `${process.env.NEXTAUTH_URL}/thanks`
     },
