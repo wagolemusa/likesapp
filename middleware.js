@@ -17,7 +17,9 @@ export default withAuth(async function middleware(req) {
             if(!token){
                 return false
             }
-        }
+        },
+        // redirect: false
+
     }
 });
 

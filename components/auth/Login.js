@@ -13,9 +13,10 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await signIn('credentials', {
+
       email,
       password,
-      callbackUrl: '/' // This will redirect to the home page after login
+       // This will redirect to the home page after login
     });
   };
 
