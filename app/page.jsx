@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import AuthContext from "../context/AuthContext";
 import Link from 'next/link';
 
-const Page = () => {
+const Home = () => {
 
     const { user, setUser } = useContext(AuthContext);
 
@@ -79,4 +79,4 @@ const Page = () => {
         </>
     )
 }
-export default Page;
+export default Home;
