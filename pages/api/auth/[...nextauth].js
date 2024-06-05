@@ -50,20 +50,52 @@ export default async function auth(req, res) {
         return session;
       },
       
-      async redirect({ baseUrl, url }) {
-        const redirectUrl = decodeURIComponent(url);
-        const callbackIndex = redirectUrl.indexOf('callbackUrl=');
-        if (callbackIndex > -1) {
-            const callbackPath = redirectUrl.slice(callbackIndex + 12);
-            // If I try to login from my homepage, the nested callbackUrl contains the full baseUrl.
-            // This behavior seems to be triggerd if you call `signIn()` from a page.
-            return callbackPath.includes(baseUrl) ? callbackPath : baseUrl + callbackPath;
-        }
-        return url;
-    },
+      // async redirect({ url }) {
+      //   const base = process.env.NEXTAUTH_URL;
+      //   // Redirect to home if the URL is the home page or root
+      //   if (url === base || url === `${base}/`) {
+      //     return base;
+      //   }
+      //   return url;
+      // }
+
+    //   async redirect({ baseUrl, url }) {
+    //     const redirectUrl = decodeURIComponent(url);
+    //     const callbackIndex = redirectUrl.indexOf('callbackUrl=');
+    //     if (callbackIndex > -1) {
+    //         const callbackPath = redirectUrl.slice(callbackIndex + 12);
+    //         // If I try to login from my homepage, the nested callbackUrl contains the full baseUrl.
+    //         // This behavior seems to be triggerd if you call `signIn()` from a page.
+    //         return callbackPath.includes(baseUrl) ? callbackPath : baseUrl + callbackPath;
+    //     }
+    //     return url;
+    // },
+
+
+    async redirect({ baseUrl, url }) {
+      const redirectUrl = decodeURIComponent(url);
+      const callbackIndex = redirectUrl.indexOf('callbackUrl=');
+      
+      if (callbackIndex > -1) {
+          const callbackPath = redirectUrl.slice(callbackIndex + 12);
+          // Check if the callbackPath already includes the full baseUrl
+          if (callbackPath.startsWith(baseUrl)) {
+              return callbackPath;
+          } else {
+              // Append the callbackPath to the baseUrl if it's not already included
+              return baseUrl + callbackPath;
+          }
+      }
+  
+      return url;
+  }
+  
+
     },
     pages: {
-      signIn: '/login'
+      signIn: `${process.env.NEXTAUTH_URL}/login`,
+      signOut: `${process.env.NEXTAUTH_URL}/`,
+      error: `${process.env.NEXTAUTH_URL}/thanks`
     },
     secret: process.env.NEXTAUTH_SECRET,
   });
