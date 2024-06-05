@@ -1,58 +1,36 @@
-"use client";
+'use client'
 
 import Link from "next/link";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
-import { toast } from "react-toastify";
-import { useRouter, useSearchParams } from "next/navigation";
 
-import { getSession } from 'next-auth/react';
-
-
-
-const Login = async() => {
-  const router = useRouter();
-
-  getSession().then(session => {
-    if (session) {
-      // Redirect to home page if user is authenticated
-      router.push('/');
-    }
-  });
-
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await signIn('credentials', {
-      email,
-      password,
-      // callbackUrl: '/' // This will redirect to the home page after login
-    });
+    try {
+      await signIn('credentials', {
+        email,
+        password,
+      });
+    } catch (error) {
+      console.error('Sign in error:', error);
+      // Handle sign in error, e.g., display toast
+    }
   };
-  const callbackUrl = '/';
-  const { error: signInError } = await signIn('email', {
-    callbackUrl,
-    email,
-    redirect: false,
-  });
-  
 
   return (
-    <div
-      style={{ maxWidth: "480px" }}
-      className="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg"
-    >
+    <div className="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg" style={{ maxWidth: "480px" }}>
       <form onSubmit={handleSubmit}>
         <h2 className="mb-5 text-2xl font-semibold">Login</h2>
 
         <div className="mb-4">
-          <label className="block mb-1"> Email </label>
+          <label className="block mb-1">Email</label>
           <input
-            className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
             type="text"
+            className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
             placeholder="Type your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -61,10 +39,10 @@ const Login = async() => {
         </div>
 
         <div className="mb-4">
-          <label className="block mb-1"> Password </label>
+          <label className="block mb-1">Password</label>
           <input
-            className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
             type="password"
+            className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
             placeholder="Type your password"
             minLength={6}
             value={password}
