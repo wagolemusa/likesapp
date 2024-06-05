@@ -6,7 +6,20 @@ import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import { getSession } from 'next-auth/react';
+
+
+
 const Login = () => {
+  const router = useRouter();
+
+  getSession().then(session => {
+    if (session) {
+      // Redirect to home page if user is authenticated
+      router.push('/');
+    }
+  });
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,9 +28,10 @@ const Login = () => {
     await signIn('credentials', {
       email,
       password,
-      callbackUrl: '/' // This will redirect to the home page after login
+      // callbackUrl: '/' // This will redirect to the home page after login
     });
   };
+
 
   return (
     <div
