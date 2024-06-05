@@ -3,8 +3,11 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Login = () => {
+
+  const router = useRouter
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,6 +18,10 @@ const Login = () => {
         email,
         password,
       });
+
+      if(!error){
+        router.push("/")
+      }
     } catch (error) {
       console.error('Sign in error:', error);
       // Handle sign in error, e.g., display toast
