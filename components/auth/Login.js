@@ -20,7 +20,7 @@ const Login = () => {
       });
 
       if(!error){
-        router.push("/")
+        router.push("https://master.d28j0wql6qmeva.amplifyapp.com")
       }
     } catch (error) {
       console.error('Sign in error:', error);
