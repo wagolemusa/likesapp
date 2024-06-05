@@ -10,7 +10,7 @@ import { getSession } from 'next-auth/react';
 
 
 
-const Login = () => {
+const Login = async() => {
   const router = useRouter();
 
   getSession().then(session => {
@@ -23,6 +23,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     await signIn('credentials', {
@@ -32,6 +33,12 @@ const Login = () => {
     });
   };
 
+  const { error: signInError } = await signIn('email', {
+    callbackUrl,
+    email,
+    redirect: false,
+  });
+  
 
   return (
     <div
