@@ -32,7 +32,7 @@ const Login = async() => {
       // callbackUrl: '/' // This will redirect to the home page after login
     });
   };
-
+  const callbackUrl = '/';
   const { error: signInError } = await signIn('email', {
     callbackUrl,
     email,
