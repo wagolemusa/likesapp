@@ -19,9 +19,17 @@ const Login = () => {
         password,
       });
 
+      const callbackUrl = 'https://master.d28j0wql6qmeva.amplifyapp.com'; // Set the desired callback URL
+        const { error: signInError } = await signIn('email', {
+          callbackUrl,
+          email,
+          redirect: false,
+        });
+
       if(!error){
         router.push("https://master.d28j0wql6qmeva.amplifyapp.com")
       }
+
     } catch (error) {
       console.error('Sign in error:', error);
       // Handle sign in error, e.g., display toast
