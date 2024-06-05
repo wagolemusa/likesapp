@@ -17,14 +17,15 @@ const Login = () => {
       await signIn('credentials', {
         email,
         password,
+        callbackUrl: 'https://master.d28j0wql6qmeva.amplifyapp.com'
       });
 
-      const callbackUrl = 'https://master.d28j0wql6qmeva.amplifyapp.com'; // Set the desired callback URL
-        const { error: signInError } = await signIn('email', {
-          callbackUrl,
-          email,
-          redirect: false,
-        });
+      // const callbackUrl = 'https://master.d28j0wql6qmeva.amplifyapp.com'; // Set the desired callback URL
+      //   const { error: signInError } = await signIn('email', {
+      //     callbackUrl,
+      //     email,
+      //     redirect: false,
+      //   });
 
       if(!error){
         router.push("https://master.d28j0wql6qmeva.amplifyapp.com")
