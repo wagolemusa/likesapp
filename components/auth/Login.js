@@ -1,41 +1,47 @@
 'use client'
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation';
+import { getSession } from 'next-auth/react';
+
 
 const Login = () => {
+  const router = useRouter();
 
-  const router = useRouter
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await signIn('credentials', {
+      const callbackUrl = process.env.NEXTAUTH_URL || '/';
+      const { error } = await signIn('credentials', {
         email,
         password,
-        callbackUrl: 'https://master.d28j0wql6qmeva.amplifyapp.com'
+        callbackUrl, // Set the callbackUrl to redirect to the home page
       });
 
-      // const callbackUrl = 'https://master.d28j0wql6qmeva.amplifyapp.com'; // Set the desired callback URL
-      //   const { error: signInError } = await signIn('email', {
-      //     callbackUrl,
-      //     email,
-      //     redirect: false,
-      //   });
-
-      if(!error){
-        router.push("https://master.d28j0wql6qmeva.amplifyapp.com")
+      if (!error) {
+        // Redirect to the home page after successful sign-in
+        router.push('/');
       }
-
     } catch (error) {
       console.error('Sign in error:', error);
       // Handle sign in error, e.g., display toast
     }
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Use router only when it's available
+      const { pathname } = router;
+      console.log('Current path:', pathname);
+    }
+  }, [router]);
+
+
 
   return (
     <div className="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg" style={{ maxWidth: "480px" }}>

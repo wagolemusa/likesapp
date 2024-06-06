@@ -50,7 +50,6 @@ export default async function auth(req, res) {
         return session;
       },
  
-
       async redirect({ baseUrl, url }) {
         const redirectUrl = decodeURIComponent(url);
         const callbackIndex = redirectUrl.indexOf('callbackUrl=');
@@ -62,6 +61,7 @@ export default async function auth(req, res) {
         }
         return url;
     },
+    
     },
     pages: {
       signIn: `${process.env.NEXTAUTH_URL}/login`,
