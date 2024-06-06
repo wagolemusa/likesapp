@@ -22,7 +22,7 @@ const Login = () => {
       if (result.error) {
         setError('Invalid email or password.');
       } else {
-        router.push('/'); // Redirect to dashboard on successful login
+        router.push('https://master.d28j0wql6qmeva.amplifyapp.com'); // Redirect to dashboard on successful login
       }
     } catch (error) {
       console.error('Sign in error:', error);
