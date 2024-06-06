@@ -71,14 +71,35 @@ export default async function auth(req, res) {
     //     return url;
     // },
 
+    // async redirect({ url, baseUrl }) {
+    //   // Allows relative callback URLs
+    //   if (url.startsWith("/")) return `${baseUrl}${url}`
+    //   // Allows callback URLs on the same origin
+    //   else if (new URL(url).origin === baseUrl) return url
+    //   return baseUrl
+    // }
+
     async redirect({ url, baseUrl }) {
-      // Allows relative callback URLs
-      if (url.startsWith("/")) return `${baseUrl}${url}`
-      // Allows callback URLs on the same origin
-      else if (new URL(url).origin === baseUrl) return url
-      return baseUrl
+      const isRelativeUrl = url.startsWith("/");
+      if (isRelativeUrl) {
+        return `${baseUrl}${url}`;
+      }
+
+      const isSameOriginUrl = new URL(url).origin === baseUrl;
+      const alreadyRedirected = url.includes('callbackUrl=')
+      if (isSameOriginUrl && alreadyRedirected) {
+        const originalCallbackUrl = decodeURIComponent(url.split('callbackUrl=')[1]);
+
+        return originalCallbackUrl;
+      }
+
+      if (isSameOriginUrl) {
+        return url;
+      }
+
+      return baseUrl;
     }
-    
+
     },
     pages: {
       signIn: `${process.env.NEXTAUTH_URL}/login`,
