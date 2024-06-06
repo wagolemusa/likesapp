@@ -16,12 +16,12 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const callbackUrl = 'https://master.d28j0wql6qmeva.amplifyapp.com';
+      // const callbackUrl = '';
       const { error } = await signIn('credentials', {
-        redirect: false,
         email,
         password,
-        callbackUrl: "/" // Set the callbackUrl to redirect to the home page
+        callbackUrl: "https://master.d28j0wql6qmeva.amplifyapp.com",// Set the callbackUrl to redirect to the home page
+        redirect: false
       });
 
       if (!error) {
