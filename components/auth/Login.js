@@ -18,9 +18,10 @@ const Login = () => {
     try {
       const callbackUrl = 'https://master.d28j0wql6qmeva.amplifyapp.com';
       const { error } = await signIn('credentials', {
+        redirect: false,
         email,
         password,
-        callbackUrl, // Set the callbackUrl to redirect to the home page
+        callbackUrl: "/" // Set the callbackUrl to redirect to the home page
       });
 
       if (!error) {
