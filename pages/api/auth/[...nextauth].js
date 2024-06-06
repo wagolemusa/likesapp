@@ -59,50 +59,20 @@ export default async function auth(req, res) {
       //   return url;
       // }
 
-    //   async redirect({ baseUrl, url }) {
-    //     const redirectUrl = decodeURIComponent(url);
-    //     const callbackIndex = redirectUrl.indexOf('callbackUrl=');
-    //     if (callbackIndex > -1) {
-    //         const callbackPath = redirectUrl.slice(callbackIndex + 12);
-    //         // If I try to login from my homepage, the nested callbackUrl contains the full baseUrl.
-    //         // This behavior seems to be triggerd if you call `signIn()` from a page.
-    //         return callbackPath.includes(baseUrl) ? callbackPath : baseUrl + callbackPath;
-    //     }
-    //     return url;
-    // },
-
-    // async redirect({ url, baseUrl }) {
-    //   // Allows relative callback URLs
-    //   if (url.startsWith("/")) return `${baseUrl}${url}`
-    //   // Allows callback URLs on the same origin
-    //   else if (new URL(url).origin === baseUrl) return url
-    //   return baseUrl
-    // }
-
-    async redirect({ url, baseUrl }) {
-      const isRelativeUrl = url.startsWith("/");
-      if (isRelativeUrl) {
-        return `${baseUrl}${url}`;
-      }
-
-      const isSameOriginUrl = new URL(url).origin === baseUrl;
-      const alreadyRedirected = url.includes('callbackUrl=')
-      if (isSameOriginUrl && alreadyRedirected) {
-        const originalCallbackUrl = decodeURIComponent(url.split('callbackUrl=')[1]);
-
-        return originalCallbackUrl;
-      }
-
-      if (isSameOriginUrl) {
+      async redirect({ baseUrl, url }) {
+        const redirectUrl = decodeURIComponent(url);
+        const callbackIndex = redirectUrl.indexOf('callbackUrl=');
+        if (callbackIndex > -1) {
+            const callbackPath = redirectUrl.slice(callbackIndex + 12);
+            // If I try to login from my homepage, the nested callbackUrl contains the full baseUrl.
+            // This behavior seems to be triggerd if you call `signIn()` from a page.
+            return callbackPath.includes(baseUrl) ? callbackPath : baseUrl + callbackPath;
+        }
         return url;
-      }
-
-      return baseUrl;
-    }
-
+    },
     },
     pages: {
-      signIn: `${process.env.NEXTAUTH_URL}/login`,
+      signIn: '/login',
       signOut: `${process.env.NEXTAUTH_URL}/`,
       error: `${process.env.NEXTAUTH_URL}/thanks`
     },

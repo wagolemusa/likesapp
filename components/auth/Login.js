@@ -23,11 +23,15 @@ const Login = () => {
         setError('Invalid email or password.');
       } else {
         router.push('/'); // Redirect to dashboard on successful login
+
+
       }
     } catch (error) {
       console.error('Sign in error:', error);
       setError('Sign in failed. Please try again.');
     }
+
+
   };
 
   return (
