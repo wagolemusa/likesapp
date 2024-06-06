@@ -22,7 +22,7 @@ const Login = () => {
       if (result.error) {
         setError('Invalid email or password.');
       } else {
-        router.push('/'); // Redirect to dashboard on successful login
+        router.replace('/'); // Redirect to dashboard on successful login
 
 
       }
