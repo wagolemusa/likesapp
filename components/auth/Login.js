@@ -1,53 +1,41 @@
 'use client'
 
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { signIn } from "next-auth/react";
+import { useState } from 'react';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { getSession } from 'next-auth/react';
-
+import Link from 'next/link';
 
 const Login = () => {
   const router = useRouter();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // const callbackUrl = '';
-      const { error } = await signIn('credentials', {
+      const result = await signIn('credentials', {
         email,
         password,
-        callbackUrl: "https://master.d28j0wql6qmeva.amplifyapp.com",// Set the callbackUrl to redirect to the home page
-        // redirect: false
+        redirect: false, // Do not automatically redirect
       });
-
-      useEffect(() => {
-        if (typeof window !== 'undefined') {
-          // Use router only when it's available
-          const { pathname } = router;
-          console.log('Current path:', pathname);
-        }
-      }, [router]);
-    
-
-      if (!error) {
-        // Redirect to the home page after successful sign-in
-        router.push('/');
+      if (result.error) {
+        setError('Invalid email or password.');
+      } else {
+        router.push('/'); // Redirect to dashboard on successful login
       }
     } catch (error) {
       console.error('Sign in error:', error);
-      // Handle sign in error, e.g., display toast
+      setError('Sign in failed. Please try again.');
     }
   };
 
-
-
-
   return (
-    <div className="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg" style={{ maxWidth: "480px" }}>
+    <div>
+      <h1>Login</h1>
+      {error && <p>{error}</p>}
+      
+      <div className="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg" style={{ maxWidth: "480px" }}>
       <form onSubmit={handleSubmit}>
         <h2 className="mb-5 text-2xl font-semibold">Login</h2>
 
@@ -92,6 +80,7 @@ const Login = () => {
           </Link>
         </p>
       </form>
+    </div>
     </div>
   );
 };
