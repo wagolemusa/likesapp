@@ -49,12 +49,15 @@ export default async function auth(req, res) {
         delete session?.user?.password;
         return session;
       },
- 
-      // redirect: async ({ url, baseUrl }) => {
-      //   return url.startsWith(baseUrl)
-      //     ? Promise.resolve(url)
-      //     : Promise.resolve(baseUrl);
-      // },
+      
+      // async redirect({ url }) {
+      //   const base = process.env.NEXTAUTH_URL;
+      //   // Redirect to home if the URL is the home page or root
+      //   if (url === base || url === `${base}/`) {
+      //     return base;
+      //   }
+      //   return url;
+      // }
 
       async redirect({ baseUrl, url }) {
         const redirectUrl = decodeURIComponent(url);
@@ -67,7 +70,6 @@ export default async function auth(req, res) {
         }
         return url;
     },
-    
     },
     pages: {
       signIn: `${process.env.NEXTAUTH_URL}/login`,
