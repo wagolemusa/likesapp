@@ -21,8 +21,17 @@ const Login = () => {
         email,
         password,
         callbackUrl: "https://master.d28j0wql6qmeva.amplifyapp.com",// Set the callbackUrl to redirect to the home page
-        redirect: false
+        // redirect: false
       });
+
+      useEffect(() => {
+        if (typeof window !== 'undefined') {
+          // Use router only when it's available
+          const { pathname } = router;
+          console.log('Current path:', pathname);
+        }
+      }, [router]);
+    
 
       if (!error) {
         // Redirect to the home page after successful sign-in
@@ -34,13 +43,6 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Use router only when it's available
-      const { pathname } = router;
-      console.log('Current path:', pathname);
-    }
-  }, [router]);
 
 
 
