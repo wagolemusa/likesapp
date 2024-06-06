@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const callbackUrl = process.env.NEXTAUTH_URL || '/';
+      const callbackUrl = process.env.NEXTAUTH_URL || 'https://master.d28j0wql6qmeva.amplifyapp.com';
       const { error } = await signIn('credentials', {
         email,
         password,
