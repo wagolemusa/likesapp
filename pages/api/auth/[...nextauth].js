@@ -50,23 +50,23 @@ export default async function auth(req, res) {
         return session;
       },
  
-      redirect: async ({ url, baseUrl }) => {
-        return url.startsWith(baseUrl)
-          ? Promise.resolve(url)
-          : Promise.resolve(baseUrl);
-      },
-      
-    //   async redirect({ baseUrl, url }) {
-    //     const redirectUrl = decodeURIComponent(url);
-    //     const callbackIndex = redirectUrl.indexOf('callbackUrl=');
-    //     if (callbackIndex > -1) {
-    //         const callbackPath = redirectUrl.slice(callbackIndex + 12);
-    //         // If I try to login from my homepage, the nested callbackUrl contains the full baseUrl.
-    //         // This behavior seems to be triggerd if you call `signIn()` from a page.
-    //         return callbackPath.includes(baseUrl) ? callbackPath : baseUrl + callbackPath;
-    //     }
-    //     return url;
-    // },
+      // redirect: async ({ url, baseUrl }) => {
+      //   return url.startsWith(baseUrl)
+      //     ? Promise.resolve(url)
+      //     : Promise.resolve(baseUrl);
+      // },
+
+      async redirect({ baseUrl, url }) {
+        const redirectUrl = decodeURIComponent(url);
+        const callbackIndex = redirectUrl.indexOf('callbackUrl=');
+        if (callbackIndex > -1) {
+            const callbackPath = redirectUrl.slice(callbackIndex + 12);
+            // If I try to login from my homepage, the nested callbackUrl contains the full baseUrl.
+            // This behavior seems to be triggerd if you call `signIn()` from a page.
+            return callbackPath.includes(baseUrl) ? callbackPath : baseUrl + callbackPath;
+        }
+        return url;
+    },
     
     },
     pages: {
