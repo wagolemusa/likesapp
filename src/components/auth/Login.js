@@ -1,42 +1,66 @@
 'use client'
-
-import { useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from "next-auth/react"
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
+
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
+  // const session = useSession()
+  const { data: session, status: sessionStatus} = useSession() 
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const result = await signIn('credentials', {
-        email,
-        password,
-        redirect: false, // Do not automatically redirect
-      });
-      if (result.error) {
-        setError('Invalid email or password.');
-      } else {
-        router.replace('/'); // Redirect to dashboard on successful login
+  const isValidEmail = (email) => {
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      return emailRegex.test(email);
+    };
 
+    useEffect(() => {
+      if(sessionStatus === "authenticated"){
+          router.replace("/");
+      }
+    },[sessionStatus, router])
+
+  const handleSubmit = async(e) =>{
+      e.preventDefault();
+      const email = e.target[0].value;
+      const password = e.target[1].value;
+
+      if(!isValidEmail(email)){
+          setError("Email is invalid")
+          return
+      }
+
+      if(!password || password.length < 8){
+          setError("Password is invalid")
+          return
+      }
+
+      const res = await signIn("credentials", {
+          redirect: false,
+          email,
+          password
+      })
+
+      if(res?.error){
+          setError("Invalid email or password");
+      } else{
+         router.push('/');
+      }
 
       }
-    } catch (error) {
-      console.error('Sign in error:', error);
-      setError('Sign in failed. Please try again.');
-    }
 
+      if(sessionStatus === 'loading'){
+          return <h1>Loading...</h1>
+      }
 
-  };
 
   return (
+
+    sessionStatus !== "authenticated" && (
     <div>
-      <h1>Login</h1>
+      
       {error && <p>{error}</p>}
       
       <div className="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg" style={{ maxWidth: "480px" }}>
@@ -49,8 +73,8 @@ const Login = () => {
             type="text"
             className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
             placeholder="Type your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            // value={email}
+            // onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -62,8 +86,8 @@ const Login = () => {
             className="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
             placeholder="Type your password"
             minLength={6}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
@@ -86,7 +110,9 @@ const Login = () => {
       </form>
     </div>
     </div>
+    )
   );
+
 };
 
 export default Login;

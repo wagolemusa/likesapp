@@ -1,6 +1,5 @@
 
 "use client";
-
 import React, { useContext, useEffect } from 'react';
 import { useSession } from "next-auth/react";
 import AuthContext from "../context/AuthContext";
@@ -11,6 +10,7 @@ const Home = () => {
     const { user, setUser } = useContext(AuthContext);
 
     const { data } = useSession();
+
   
     useEffect(() => {
       if (data) {
@@ -18,6 +18,9 @@ const Home = () => {
       }
     }, [data]);
   
+
+    console.log("userme", user)
+    
 
     return (
         <>
