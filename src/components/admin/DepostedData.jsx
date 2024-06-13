@@ -4,7 +4,7 @@ import CustromPagination from "../layouts/CustromPagination";
 import axios from 'axios';
 import Link from 'next/link';
 
-const DepostedData = ({ data }) =>{
+const DepostedData = () =>{
 
 const [data, setData] = useState(null);
 const [error, setError] = useState(null);
