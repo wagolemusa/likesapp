@@ -1,27 +1,29 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import CustromPagination from "../layouts/CustromPagination";
-import axios from 'axios';
+// import axios from 'axios';
 import Link from 'next/link';
 
-const DepostedData = () =>{
+const DepostedData = ({ data }) =>{
 
-const [data, setData] = useState(null);
-const [error, setError] = useState(null);
+    
 
-useEffect(() => {
-    async function fetchData() {
-        try {
-            const response = await axios.get('https://master.d28j0wql6qmeva.amplifyapp.com/api/admin/depost/getdata');
-            setData(response.data);
-        } catch (error) {
-            setError('Failed to fetch data');
-            console.error('Error fetching data:', error);
-        }
-    }
+// const [data, setData] = useState(null);
+// const [error, setError] = useState(null);
 
-    fetchData();
-}, []);
+// useEffect(() => {
+//     async function fetchData() {
+//         try {
+//             const response = await axios.get('http://localhost:3000/api/admin/depost/getdata');
+//             setData(response.data);
+//         } catch (error) {
+//             setError('Failed to fetch data');
+//             console.error('Error fetching data:', error);
+//         }
+//     }
+
+//     fetchData();
+// }, []);
 
 
     return (
@@ -76,5 +78,25 @@ useEffect(() => {
     );
 };
 
+
+export const getServerSideProps = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/api/admin/depost/getdata');
+      return {
+        props: {
+          data: response.data,
+          error: null,
+        },
+      };
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return {
+        props: {
+          data: null,
+          error: 'Failed to fetch data',
+        },
+      };
+    }
+  };
 
 export default DepostedData;
