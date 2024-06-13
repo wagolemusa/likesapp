@@ -21,7 +21,7 @@ const CreateStepHotel = () => {
         }
 
         try {
-            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createHotel, {
+            const response = await axios.post("https://master.d1s2zcs2flgrc.amplifyapp.com/api/step", createHotel, {
 
                 headers: {
                     'Accept': 'application/json',

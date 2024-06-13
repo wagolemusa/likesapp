@@ -21,7 +21,7 @@ const CreateStepAir = () => {
         }
 
         try {
-            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/step", createAirport, {
+            const response = await axios.post("https://master.d1s2zcs2flgrc.amplifyapp.com/api/step", createAirport, {
 
                 headers: {
                     'Accept': 'application/json',

@@ -20,7 +20,7 @@ const CreateMessage = () => {
             user
         }
         try {
-            const response = await axios.post("https://master.d28j0wql6qmeva.amplifyapp.com/api/message", createSms, {
+            const response = await axios.post("https://master.d1s2zcs2flgrc.amplifyapp.com/api/message", createSms, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'

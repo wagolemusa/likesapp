@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const getProducts = async () => {
 
-    const { data } = await axios.get('https://master.d28j0wql6qmeva.amplifyapp.com/api/admin/depost/getdata');
+    const { data } = await axios.get('https://master.d1s2zcs2flgrc.amplifyapp.com/api/admin/depost/getdata');
     return data;
 }
 

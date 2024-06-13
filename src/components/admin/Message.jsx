@@ -13,7 +13,7 @@ const Message = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get('https://master.d28j0wql6qmeva.amplifyapp.com/api/admin/messages');
+                const response = await axios.get('https://master.d1s2zcs2flgrc.amplifyapp.com/api/admin/messages');
                 setData(response.data);
             } catch (error) {
                 setError('Failed to fetch data');
