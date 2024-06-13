@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import CustromPagination from "../layouts/CustromPagination";
-// import axios from 'axios';
+import axios from 'axios';
 import Link from 'next/link';
 
 const DepostedData = ({ data }) =>{
