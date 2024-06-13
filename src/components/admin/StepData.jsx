@@ -1,6 +1,6 @@
 'use client'
 import CustromPagination from "../layouts/CustromPagination";
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, Suspense} from "react";
 
 import '../layouts/styles.css'
 import axios from "axios";
@@ -29,7 +29,7 @@ const StepData = () => {
 
     return (
 
-        <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
+        <Suspense className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
                 <h1 className="text-3xl my-5 ml-4 font-bold">
                     <Link href="/me" className="btn btn-primary">Back</Link> Tasks operated
 
@@ -70,7 +70,7 @@ const StepData = () => {
                     productsCount={data?.filteredProductsCount}
                 />
             </div>
-        </div>
+        </Suspense>
 
     );
 };
