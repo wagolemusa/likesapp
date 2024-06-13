@@ -6,24 +6,22 @@ import Link from 'next/link';
 
 const DepostedData = ({ data }) =>{
 
-    
+const [data, setData] = useState(null);
+const [error, setError] = useState(null);
 
-// const [data, setData] = useState(null);
-// const [error, setError] = useState(null);
+useEffect(() => {
+    async function fetchData() {
+        try {
+            const response = await axios.get('https://master.d1s2zcs2flgrc.amplifyapp.com/api/admin/depost/getdata');
+            setData(response.data);
+        } catch (error) {
+            setError('Failed to fetch data');
+            console.error('Error fetching data:', error);
+        }
+    }
 
-// useEffect(() => {
-//     async function fetchData() {
-//         try {
-//             const response = await axios.get('http://localhost:3000/api/admin/depost/getdata');
-//             setData(response.data);
-//         } catch (error) {
-//             setError('Failed to fetch data');
-//             console.error('Error fetching data:', error);
-//         }
-//     }
-
-//     fetchData();
-// }, []);
+    fetchData();
+}, []);
 
 
     return (
