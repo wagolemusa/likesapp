@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import CustromPagination from "../layouts/CustromPagination";
 import axios from 'axios';
 import Link from 'next/link';
@@ -26,7 +26,7 @@ useEffect(() => {
 
     return (
 
-        <div className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
+        <Suspense className="customer relative overflow-x-auto shadow-md sm:rounded-lg">
                <h1 className="text-3xl my-5 ml-4 font-bold">
                     <Link href="/me" className="btn btn-primary">Back</Link>  Tasks Performed Per User
 
@@ -71,7 +71,7 @@ useEffect(() => {
                     productsCount={data?.filteredProductsCount}
                 />
             </div>
-        </div>
+        </Suspense>
 
     );
 };
