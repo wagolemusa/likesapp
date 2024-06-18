@@ -21,7 +21,7 @@ const CreateStep = () => {
         }
 
         try {
-            const response = await axios.post("https://master.d1s2zcs2flgrc.amplifyapp.com/api/step", createSteps, {
+            const response = await axios.post("https://likeapp-8ccf7f87ba61.herokuapp.com/api/step", createSteps, {
 
                 headers: {
                     'Accept': 'application/json',

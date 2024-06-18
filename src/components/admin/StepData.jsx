@@ -14,7 +14,7 @@ const StepData = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get('https://master.d1s2zcs2flgrc.amplifyapp.com/api/admin/step');
+                const response = await axios.get('https://likeapp-8ccf7f87ba61.herokuapp.com/api/admin/step');
                 setData(response.data);
             } catch (error) {
                 setError('Failed to fetch data');
