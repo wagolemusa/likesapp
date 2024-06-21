@@ -10,16 +10,21 @@ const CreateStepAir = () => {
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
 
+    const isValidObjectId = (id) => /^[a-f\d]{24}$/i.test(id);
+
     const handleSave = async (e) => {
         e.preventDefault();
         setError(null);
 
+        if (!isValidObjectId(user.id)) {
+            setError("Invalid user ID format");
+            return;
+        }
+
         const createAirport = {
             like: "liked",
             step: "restaurants",
-            user: {
-                email: user.email
-            }
+            user: user.id
         }
 
         try {
