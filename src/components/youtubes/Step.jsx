@@ -9,15 +9,21 @@ const CreateStep = () => {
 
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
+    const isValidObjectId = (id) => /^[a-f\d]{24}$/i.test(id);
 
     const handleSave = async (e) => {
         e.preventDefault();
         setError(null);
 
+        if (!isValidObjectId(user.id)) {
+            setError("Invalid user ID format");
+            return;
+        }
+
         const createSteps = {
             like: "liked",
             step: "youtube",
-            user
+            user: user.id
         }
 
         try {

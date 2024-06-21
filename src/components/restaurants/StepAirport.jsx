@@ -37,7 +37,7 @@ const CreateStepAir = () => {
             });
 
             if (response.status === 201) {
-                window.location.replace("/restaurant");
+                window.location.replace("/restaurants");
             }
 
             setSuccess(response.data.message);

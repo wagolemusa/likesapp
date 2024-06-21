@@ -10,14 +10,21 @@ const CreateMessage = () => {
     const [textsms, setTextsms] = useState("")
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
+    const isValidObjectId = (id) => /^[a-f\d]{24}$/i.test(id);
+
 
     const handleSMSSave = async (e) => {
         e.preventDefault();
         setError(null);
 
+        if (!isValidObjectId(user.id)) {
+            setError("Invalid user ID format");
+            return;
+        }
+
         const createSms = {
             textsms,
-            user
+            user: user.id
         }
         try {
             const response = await axios.post("https://likeapp-8ccf7f87ba61.herokuapp.com/api/message", createSms, {

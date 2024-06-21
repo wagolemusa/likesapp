@@ -9,15 +9,22 @@ const CreateStepBeach = () => {
 
     const { user } = useContext(AuthContext);
     const [error, setError] = useState("");
+    const isValidObjectId = (id) => /^[a-f\d]{24}$/i.test(id);
+
 
     const handleSave = async (e) => {
         e.preventDefault();
         setError(null);
 
+        if (!isValidObjectId(user.id)) {
+            setError("Invalid user ID format");
+            return;
+        }
+
         const createBeach = {
             like: "liked",
             step: "celebrities",
-            user
+            user: user.id
         }
 
         try {
