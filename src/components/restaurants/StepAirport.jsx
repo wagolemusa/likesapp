@@ -17,7 +17,9 @@ const CreateStepAir = () => {
         const createAirport = {
             like: "liked",
             step: "restaurants",
-            user
+            user: {
+                email: user.email
+            }
         }
 
         try {
